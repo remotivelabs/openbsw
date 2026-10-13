@@ -23,8 +23,14 @@ extern "C"
 #define EXTRA_THREAD_DATA_STACK_SIZE 40U // see pxPortInitialiseStack()
 #if (defined(_DYNAMIC_STACK_SIZE_SOURCE)) || (defined(_GNU_SOURCE))
 // the library may not give a compile time value; a workaround is provided
+#if defined(__aarch64__)
+// glibc's PTHREAD_STACK_MIN is 128 KiB on AArch64. With a smaller stack pthread_attr_setstack()
+// fails with EINVAL and the port falls back to the default stack for every task.
+#define MINIMUM_STACK_SIZE (131072U + EXTRA_THREAD_DATA_STACK_SIZE)
+#else // __aarch64__
 #define MINIMUM_STACK_SIZE (16384U + EXTRA_THREAD_DATA_STACK_SIZE)
-#else // _DYNAMIC_STACK_SIZE_SOURCE
+#endif // __aarch64__
+#else  // _DYNAMIC_STACK_SIZE_SOURCE
 #include <pthread.h>
 #define MINIMUM_STACK_SIZE ((PTHREAD_STACK_MIN) + EXTRA_THREAD_DATA_STACK_SIZE)
 #endif // _DYNAMIC_STACK_SIZE_SOURCE
