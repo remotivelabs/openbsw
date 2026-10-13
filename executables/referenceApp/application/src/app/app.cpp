@@ -110,6 +110,7 @@ namespace platform
 // TODO: move declaration to header file
 extern void platformLifecycleAdd(::lifecycle::LifecycleManager& lifecycleManager, uint8_t level);
 extern StaticBsp& getStaticBsp();
+extern void platformIdle();
 } // namespace platform
 
 namespace app
@@ -230,6 +231,9 @@ private:
         }
         else
         {
+            // Give the platform a chance to rest until there is something to do again (e.g.
+            // sleep on a host, wait for interrupt on a microcontroller) before polling again.
+            ::platform::platformIdle();
             ::async::execute(AsyncAdapter::TASK_IDLE, *this);
         }
     }
