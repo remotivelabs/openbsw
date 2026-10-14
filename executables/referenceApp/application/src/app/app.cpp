@@ -256,7 +256,6 @@ void staticInit()
 void run()
 {
     staticInit();
-    etl::print("hello\r\n");
 
     idleHandler.init();
 #ifdef BUILD_RUST

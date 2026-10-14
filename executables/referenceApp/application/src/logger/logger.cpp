@@ -43,6 +43,7 @@
 DEFINE_LOGGER_COMPONENT(BSP);
 DEFINE_LOGGER_COMPONENT(COMMON);
 DEFINE_LOGGER_COMPONENT(DEMO);
+DEFINE_LOGGER_COMPONENT(BCM);
 DEFINE_LOGGER_COMPONENT(GLOBAL);
 DEFINE_LOGGER_COMPONENT(SAFETY);
 DEFINE_LOGGER_COMPONENT(ETHERNET);
@@ -65,6 +66,7 @@ START_LOGGER_COMPONENT_MAPPING_INFO_TABLE(loggerComponentInfoTable)
 LOGGER_COMPONENT_MAPPING_INFO(_WARN, BSP, ::util::format::Color::DEFAULT_COLOR)
 LOGGER_COMPONENT_MAPPING_INFO(_WARN, COMMON, ::util::format::Color::DEFAULT_COLOR)
 LOGGER_COMPONENT_MAPPING_INFO(_INFO, DEMO, ::util::format::Color::DEFAULT_COLOR)
+LOGGER_COMPONENT_MAPPING_INFO(_INFO, BCM, ::util::format::Color::DEFAULT_COLOR)
 LOGGER_COMPONENT_MAPPING_INFO(_DEBUG, GLOBAL, ::util::format::Color::DEFAULT_COLOR)
 LOGGER_COMPONENT_MAPPING_INFO(_WARN, LIFECYCLE, ::util::format::Color::DARK_GRAY)
 LOGGER_COMPONENT_MAPPING_INFO(_WARN, CONSOLE, ::util::format::Color::DEFAULT_COLOR)
@@ -110,7 +112,7 @@ namespace logger
 {
 using ComponentConfigType = ComponentConfig<LoggerComponentMappingType::MappingSize>;
 ComponentConfigType loggerComponentConfig(loggerComponentMapping);
-LoggerComposition loggerComposition(loggerComponentMapping, "RefApp");
+LoggerComposition loggerComposition(loggerComponentMapping, "BCM");
 
 DefaultLoggerCommand loggerCommand(loggerComponentConfig);
 
