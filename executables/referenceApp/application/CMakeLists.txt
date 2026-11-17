@@ -14,6 +14,18 @@ if (PLATFORM_SUPPORT_TRANSPORT)
     if (PLATFORM_SUPPORT_UDS)
         target_sources(app.referenceApp PRIVATE src/systems/UdsSystem.cpp
                                                 src/uds/ReadIdentifierPot.cpp)
+        set(REFERENCE_APP_SW_VERSION
+            ""
+            CACHE STRING
+                  "Software version reported in UDS DID F195 (empty: built-in default)")
+        if (REFERENCE_APP_SW_VERSION)
+            # On UdsSystem.cpp only, so that a new version recompiles one file.
+            set_property(
+                SOURCE src/systems/UdsSystem.cpp
+                APPEND
+                PROPERTY COMPILE_DEFINITIONS
+                         "REFERENCE_APP_SW_VERSION=\"${REFERENCE_APP_SW_VERSION}\"")
+        endif ()
         if (PLATFORM_SUPPORT_UDS_DEMO_SERVICES)
             target_sources(
                 app.referenceApp
