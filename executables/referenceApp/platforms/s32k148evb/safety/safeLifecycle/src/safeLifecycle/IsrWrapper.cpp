@@ -17,4 +17,6 @@ SAFE_ISR(WDOG_EWM_IRQHandler);
 SAFE_ISR(ERM_double_fault_IRQHandler);
 SAFE_ISR(CAN0_ORed_0_15_MB_IRQHandler);
 SAFE_ISR(CAN0_ORed_16_31_MB_IRQHandler);
+SAFE_ISR(CAN1_ORed_0_15_MB_IRQHandler);
+SAFE_ISR(CAN1_ORed_16_31_MB_IRQHandler);
 }

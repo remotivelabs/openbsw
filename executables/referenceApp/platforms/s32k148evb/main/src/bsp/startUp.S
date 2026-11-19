@@ -125,8 +125,8 @@ __isr_vector:
     .long   DefaultISR                                      /* CAN1_ORed_IRQHandler                               CAN1 OR'ed [Bus Off OR Transmit Warning OR Receive Warning] */
     .long   DefaultISR                                      /* CAN1_Error_IRQHandler                              CAN1 Interrupt indicating that errors were detected on the CAN bus */
     .long   DefaultISR                                      /* Reserved103_IRQHandler                             Reserved Interrupt 103 */
-    .long   DefaultISR                                      /* CAN1_ORed_0_15_MB_IRQHandler                       CAN1 OR'ed Interrupt for Message buffer (0-15) */
-    .long   DefaultISR                                      /* CAN1_ORed_16_31_MB_IRQHandler                      CAN1 OR'ed Interrupt for Message buffer (16-31) */
+    .long   Safe_CAN1_ORed_0_15_MB_IRQHandler               /* CAN1 OR'ed Message buffer (0-15) */
+    .long   Safe_CAN1_ORed_16_31_MB_IRQHandler              /* CAN1 OR'ed Message buffer (16-31) */
     .long   DefaultISR                                      /* Reserved106_IRQHandler                             Reserved Interrupt 106 */
     .long   DefaultISR                                      /* Reserved107_IRQHandler                             Reserved Interrupt 107 */
     .long   DefaultISR                                      /* CAN2_ORed_IRQHandler                               CAN2 OR'ed [Bus Off OR Transmit Warning OR Receive Warning] */
