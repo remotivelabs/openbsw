@@ -40,6 +40,16 @@ extern void call_can_isr_RX();
  * then leaves the ISR group for CAN.
  */
 extern void call_can_isr_TX();
+
+/**
+ * Same as call_can_isr_RX(), for FlexCAN1 (CAN_1).
+ */
+extern void call_can1_isr_RX();
+
+/**
+ * Same as call_can_isr_TX(), for FlexCAN1 (CAN_1).
+ */
+extern void call_can1_isr_TX();
 //[EXTERN_END]
 }
 
@@ -90,7 +100,7 @@ public:
     void shutdown() override;
 
     /**
-     * Checks if the given busId is equal to CAN_0. If it is returns a reference else nullptr.
+     * Returns the transceiver for CAN_0 (FlexCAN0) or CAN_1 (FlexCAN1), else nullptr.
      *
      * \param busId BusId.
      * \return A non-const reference to the CanFlex2Transceiver object.
@@ -137,6 +147,7 @@ public:
 private:
     ::async::ContextType _context;
     bios::CanFlex2Transceiver _transceiver0;
+    bios::CanFlex2Transceiver _transceiver1;
     CanRxRunnable _canRxRunnable;
 };
 
