@@ -11,11 +11,13 @@
 #include "lifecycle/StaticBsp.h"
 
 #include <async/AsyncBinding.h>
+#include <async/Config.h>
 #include <etl/alignment.h>
 #include <lifecycle/LifecycleManager.h>
 #include <safeSupervisor/SafeSupervisor.h>
 
 #include <csignal>
+#include <ctime>
 #include <unistd.h>
 
 #ifdef PLATFORM_SUPPORT_CAN
@@ -35,6 +37,18 @@ namespace platform
 StaticBsp staticBsp;
 
 StaticBsp& getStaticBsp() { return staticBsp; }
+
+/**
+ * Called by the application's idle handler once per iteration. Without it the idle task
+ * busy-polls (logger, console, ...) and the POSIX port keeps one host core fully loaded.
+ * Sleeping for one system tick caps the polling rate at the tick rate. The tick signal
+ * still preempts the sleeping idle thread, so the other tasks are not affected.
+ */
+void platformIdle()
+{
+    timespec const tick{0, static_cast<long>(ASYNC_CONFIG_TICK_IN_US) * 1000L};
+    (void)nanosleep(&tick, nullptr);
+}
 
 #ifdef PLATFORM_SUPPORT_CAN
 ::etl::typed_storage<::systems::CanSystem> canSystem;
