@@ -1,13 +1,32 @@
+# An application can replace the referenceApp's demo (DemoSystem and the CAN
+# demo listener) without changing this tree: REFERENCE_APP_APPLICATION_DIR
+# names a directory with
+#
+#   CMakeLists.txt              adds the application's sources (and any further
+#                               include directories or libraries) to the
+#                               app.referenceApp target
+#   include/systems/DemoSystem.h  a systems::DemoSystem with the constructor
+#                               that app.cpp calls; it is found before the
+#                               referenceApp's own
+#
+# Empty (the default) builds the demo.
+set(REFERENCE_APP_APPLICATION_DIR
+    ""
+    CACHE PATH "Application to build in place of the referenceApp demo")
+
 add_executable(
     app.referenceApp
     src/app/app.cpp
     src/console/console.cpp
     src/logger/logger.cpp
-    src/systems/DemoSystem.cpp
     src/systems/RuntimeSystem.cpp
     src/systems/SysAdminSystem.cpp
     src/systems/SafetySystem.cpp
     src/main.cpp)
+
+if (NOT REFERENCE_APP_APPLICATION_DIR)
+    target_sources(app.referenceApp PRIVATE src/systems/DemoSystem.cpp)
+endif ()
 
 if (PLATFORM_SUPPORT_TRANSPORT)
     target_sources(app.referenceApp PRIVATE src/systems/TransportSystem.cpp)
@@ -63,7 +82,9 @@ if (PLATFORM_SUPPORT_ETHERNET)
 endif ()
 
 if (PLATFORM_SUPPORT_CAN)
-    target_sources(app.referenceApp PRIVATE src/app/CanDemoListener.cpp)
+    if (NOT REFERENCE_APP_APPLICATION_DIR)
+        target_sources(app.referenceApp PRIVATE src/app/CanDemoListener.cpp)
+    endif ()
     if (PLATFORM_SUPPORT_TRANSPORT)
         target_sources(
             app.referenceApp
@@ -184,4 +205,12 @@ if (BUILD_RUST)
     target_include_directories(
         app.referenceApp
         PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../rustHelloWorld/include)
+endif ()
+
+if (REFERENCE_APP_APPLICATION_DIR)
+    message(STATUS "referenceApp application: ${REFERENCE_APP_APPLICATION_DIR}")
+    target_include_directories(app.referenceApp BEFORE
+                               PRIVATE ${REFERENCE_APP_APPLICATION_DIR}/include)
+    add_subdirectory(${REFERENCE_APP_APPLICATION_DIR}
+                     ${CMAKE_CURRENT_BINARY_DIR}/externalApplication)
 endif ()
