@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../../middleware.html">middleware</a></li>
+        
+        <li><a href="../../../../../src.html">src</a></li>
+        
+        <li><a href="../../../../middleware.html">middleware</a></li>
+        
+        <li><a href="../../../svc.html">svc</a></li>
+        
+        <li ><a href="../../rpc.html">rpc</a>
+            </li>
+
+        
+        <li class="active"><a href="../ProxyMethodImpl.cpp.html">ProxyMethodImpl.cpp</a>:114
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&amp;, middleware::svc::core::Message&amp;, middleware::svc::core::HRESULT)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00043458</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>24 (static)</td>
+                <td>152</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../build/s32k148-freertos/executables/referenceApp/middlewareConfiguration/src/generated_code/org/test/foo/FooProxy.cpp/799c46b4bbb125372974865a00ad8ece.html">org::test::foo::Foo::proxy::FooDefaultAttribute::get(etl::delegate&lt;void (etl::expected&lt;etl::reference_wrapper&lt;org::test::foo::Foo::FooStruct const&gt;, middleware::svc::core::Future::State&gt; const&amp;)&gt;) (136)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (1,
+                            <span title="sum of used bytes by all callees">
+                            Σ=136
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="../../core/MessagePayloadBuilder.cpp/7fb6001851e211f13b199c6c2ff83d5b.html">middleware::svc::core::MessagePayloadBuilder::deallocate(middleware::svc::core::Message const&amp;) (136)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./778c52c7d3158e948d53ad97c5716a47.html">middleware::svc::rpc::ProxyMethodImpl::obtainFuture() (76)</a></pre>
+    
+
+    <pre>
+
+    middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&, middleware::svc::core::Message&, middleware::svc::core::HRESULT):
+
+       43458:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+
+       4345c:	f89d c018 	ldrb.w	ip, [sp, #24]
+
+       43460:	889c      	ldrh	r4, [r3, #4]
+
+       43462:	4605      	mov	r5, r0
+
+       43464:	460f      	mov	r7, r1
+
+       43466:	f1bc 0f00 	cmp.w	ip, #0
+
+       4346a:	d128      	bne.n	434be <<a href="./b63cafd2812e9c11564b72b23aee7bd0.html">middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&, middleware::svc::core::Message&, middleware::svc::core::HRESULT)</a>+0x66>
+
+       4346c:	461e      	mov	r6, r3
+
+       4346e:	6813      	ldr	r3, [r2, #0]
+
+       43470:	4610      	mov	r0, r2
+
+       43472:	695b      	ldr	r3, [r3, #20]
+
+       43474:	4631      	mov	r1, r6
+
+       43476:	4798      	blx	r3
+
+       43478:	4680      	mov	r8, r0
+
+       4347a:	b920      	cbnz	r0, 43486 <<a href="./b63cafd2812e9c11564b72b23aee7bd0.html">middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&, middleware::svc::core::Message&, middleware::svc::core::HRESULT)</a>+0x2e>
+
+    _ZN3etl15private_variant35variant_trivially_destructible_baseILb1EJtN10middleware3svc4core7HRESULTEEEC4ILj0EtEENS_16in_place_index_tIXT_EEEOT0_j():
+
+       4347c:	6068      	str	r0, [r5, #4]
+
+    _ZN3etl15private_variant14variadic_unionIJtN10middleware3svc4core7HRESULTEEEC4ItEENS_16in_place_index_tILj0EEEOT_():
+
+       4347e:	802c      	strh	r4, [r5, #0]
+
+    middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&, middleware::svc::core::Message&, middleware::svc::core::HRESULT):
+
+       43480:	4628      	mov	r0, r5
+
+       43482:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+       43486:	4630      	mov	r0, r6
+
+       43488:	f7ff fc62 	bl	42d50 <<a href="../../core/MessagePayloadBuilder.cpp/7fb6001851e211f13b199c6c2ff83d5b.html">middleware::svc::core::MessagePayloadBuilder::deallocate(middleware::svc::core::Message const&)</a>>
+
+    _ZNK3etl4spanIN10middleware3svc4core6FutureELj4294967295EE5beginEv():
+
+       4348c:	683b      	ldr	r3, [r7, #0]
+
+    _ZNK3etl4spanIN10middleware3svc4core6FutureELj4294967295EE3endEv():
+
+       4348e:	6879      	ldr	r1, [r7, #4]
+
+    middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&, middleware::svc::core::Message&, middleware::svc::core::HRESULT):
+
+       43490:	428b      	cmp	r3, r1
+
+    find_if<middleware::svc::core::Future*, middleware::svc::rpc::ProxyMethodImpl::cancelRequest(uint16_t)::<lambda(middleware::svc::core::Future&)> >():
+
+       43492:	d103      	bne.n	4349c <<a href="./b63cafd2812e9c11564b72b23aee7bd0.html">middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&, middleware::svc::core::Message&, middleware::svc::core::HRESULT)</a>+0x44>
+
+       43494:	e00c      	b.n	434b0 <<a href="./b63cafd2812e9c11564b72b23aee7bd0.html">middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&, middleware::svc::core::Message&, middleware::svc::core::HRESULT)</a>+0x58>
+
+       43496:	3308      	adds	r3, #8
+
+       43498:	4299      	cmp	r1, r3
+
+       4349a:	d009      	beq.n	434b0 <<a href="./b63cafd2812e9c11564b72b23aee7bd0.html">middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&, middleware::svc::core::Message&, middleware::svc::core::HRESULT)</a>+0x58>
+
+       4349c:	889a      	ldrh	r2, [r3, #4]
+
+       4349e:	42a2      	cmp	r2, r4
+
+       434a0:	d1f9      	bne.n	43496 <<a href="./b63cafd2812e9c11564b72b23aee7bd0.html">middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&, middleware::svc::core::Message&, middleware::svc::core::HRESULT)</a>+0x3e>
+
+    _ZN10middleware3svc3rpc15ProxyMethodImpl13cancelRequestEt():
+
+       434a2:	428b      	cmp	r3, r1
+
+       434a4:	d004      	beq.n	434b0 <<a href="./b63cafd2812e9c11564b72b23aee7bd0.html">middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&, middleware::svc::core::Message&, middleware::svc::core::HRESULT)</a>+0x58>
+
+       434a6:	2100      	movs	r1, #0
+
+       434a8:	f64f 72ff 	movw	r2, #65535	@ 0xffff
+
+       434ac:	7199      	strb	r1, [r3, #6]
+
+       434ae:	809a      	strh	r2, [r3, #4]
+
+    _ZN3etl15private_variant35variant_trivially_destructible_baseILb1EJtN10middleware3svc4core7HRESULTEEEC4ILj1ES5_EENS_16in_place_index_tIXT_EEEOT0_j():
+
+       434b0:	2301      	movs	r3, #1
+
+    _ZN3etl15private_variant14variadic_unionIJN10middleware3svc4core7HRESULTEEEC4IS5_EENS_16in_place_index_tILj0EEEOT_():
+
+       434b2:	f885 8000 	strb.w	r8, [r5]
+
+    _ZN3etl15private_variant35variant_trivially_destructible_baseILb1EJtN10middleware3svc4core7HRESULTEEEC4ILj1ES5_EENS_16in_place_index_tIXT_EEEOT0_j():
+
+       434b6:	606b      	str	r3, [r5, #4]
+
+    middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&, middleware::svc::core::Message&, middleware::svc::core::HRESULT):
+
+       434b8:	4628      	mov	r0, r5
+
+       434ba:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+    _ZNK3etl4spanIN10middleware3svc4core6FutureELj4294967295EE5beginEv():
+
+       434be:	680b      	ldr	r3, [r1, #0]
+
+    _ZNK3etl4spanIN10middleware3svc4core6FutureELj4294967295EE3endEv():
+
+       434c0:	6849      	ldr	r1, [r1, #4]
+
+    middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&, middleware::svc::core::Message&, middleware::svc::core::HRESULT):
+
+       434c2:	428b      	cmp	r3, r1
+
+    find_if<middleware::svc::core::Future*, middleware::svc::rpc::ProxyMethodImpl::cancelRequest(uint16_t)::<lambda(middleware::svc::core::Future&)> >():
+
+       434c4:	d103      	bne.n	434ce <<a href="./b63cafd2812e9c11564b72b23aee7bd0.html">middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&, middleware::svc::core::Message&, middleware::svc::core::HRESULT)</a>+0x76>
+
+       434c6:	e00c      	b.n	434e2 <<a href="./b63cafd2812e9c11564b72b23aee7bd0.html">middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&, middleware::svc::core::Message&, middleware::svc::core::HRESULT)</a>+0x8a>
+
+       434c8:	3308      	adds	r3, #8
+
+       434ca:	4299      	cmp	r1, r3
+
+       434cc:	d009      	beq.n	434e2 <<a href="./b63cafd2812e9c11564b72b23aee7bd0.html">middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&, middleware::svc::core::Message&, middleware::svc::core::HRESULT)</a>+0x8a>
+
+       434ce:	889a      	ldrh	r2, [r3, #4]
+
+       434d0:	42a2      	cmp	r2, r4
+
+       434d2:	d1f9      	bne.n	434c8 <<a href="./b63cafd2812e9c11564b72b23aee7bd0.html">middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&, middleware::svc::core::Message&, middleware::svc::core::HRESULT)</a>+0x70>
+
+    _ZN10middleware3svc3rpc15ProxyMethodImpl13cancelRequestEt():
+
+       434d4:	428b      	cmp	r3, r1
+
+       434d6:	d004      	beq.n	434e2 <<a href="./b63cafd2812e9c11564b72b23aee7bd0.html">middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&, middleware::svc::core::Message&, middleware::svc::core::HRESULT)</a>+0x8a>
+
+       434d8:	2100      	movs	r1, #0
+
+       434da:	f64f 72ff 	movw	r2, #65535	@ 0xffff
+
+       434de:	7199      	strb	r1, [r3, #6]
+
+       434e0:	809a      	strh	r2, [r3, #4]
+
+    _ZN3etl15private_variant35variant_trivially_destructible_baseILb1EJtN10middleware3svc4core7HRESULTEEEC4ILj1ES5_EENS_16in_place_index_tIXT_EEEOT0_j():
+
+       434e2:	2301      	movs	r3, #1
+
+    _ZN3etl15private_variant14variadic_unionIJN10middleware3svc4core7HRESULTEEEC4IS5_EENS_16in_place_index_tILj0EEEOT_():
+
+       434e4:	f885 c000 	strb.w	ip, [r5]
+
+    _ZN3etl15private_variant35variant_trivially_destructible_baseILb1EJtN10middleware3svc4core7HRESULTEEEC4ILj1ES5_EENS_16in_place_index_tIXT_EEEOT0_j():
+
+       434e8:	606b      	str	r3, [r5, #4]
+
+    middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&, middleware::svc::core::Message&, middleware::svc::core::HRESULT):
+
+       434ea:	4628      	mov	r0, r5
+
+       434ec:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+    </pre>
+
+    
+    <pre><a href="./e7ec1d5a68f263b2bf92ef8000ee5dcb.html">middleware::svc::rpc::ProxyMethodImpl::updateTimeouts(unsigned long, etl::delegate&lt;void (middleware::svc::core::Future&amp;)&gt;) (116)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 804</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 716</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    804
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    716
+                    
+                    
+                </td>
+                <td class="col_size">68</td>
+                <td><a href="../../../../../../util/src/util/logger/Logger.cpp/d658d7c78dcca1ca01e61ef198b3eeaa.html" class="icon-function">util::logger::Logger::doLog(unsigned char, util::logger::Level, char const*, std::__va_list)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    756
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                36 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    648
+                    
+                    
+                </td>
+                <td class="col_size">96</td>
+                <td><a href="../../../../../../../../executables/referenceApp/middlewareConfiguration/platform_integration/logger/src/LoggerImpl.cpp/8898359ef4c4e464a742644b555e7f67.html" class="icon-function">middleware::logger::log(middleware::logger::LogLevel, char const*, ...)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    720
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                480 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    552
+                    
+                    
+                </td>
+                <td class="col_size">416</td>
+                <td><a href="../../core/LoggerApi.cpp/fb14346d08a0d5e4c0c3718697d64fba.html" class="icon-function">middleware::logger::logAllocationFailure(middleware::logger::LogLevel, middleware::logger::Error, middleware::svc::core::HRESULT, middleware::svc::core::Message const&amp;, unsigned long)</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    240
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">136</td>
+                <td><a href="../../core/MessagePayloadBuilder.cpp/7fb6001851e211f13b199c6c2ff83d5b.html" class="icon-function">middleware::svc::core::MessagePayloadBuilder::deallocate(middleware::svc::core::Message const&amp;)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">192
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 192</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 1,024</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    192
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,024
+                    
+                    
+                </td>
+                <td class="col_size">152</td>
+                <td><a href="./b63cafd2812e9c11564b72b23aee7bd0.html" class="icon-function">middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&amp;, middleware::svc::core::Message&amp;, middleware::svc::core::HRESULT)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    168
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                112 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    872
+                    
+                    
+                </td>
+                <td class="col_size">136</td>
+                <td><a href="../../../../../../../../build/s32k148-freertos/executables/referenceApp/middlewareConfiguration/src/generated_code/org/test/foo/FooProxy.cpp/799c46b4bbb125372974865a00ad8ece.html" class="icon-function">org::test::foo::Foo::proxy::FooDefaultAttribute::get(etl::delegate&lt;void (etl::expected&lt;etl::reference_wrapper&lt;org::test::foo::Foo::FooStruct const&gt;, middleware::svc::core::Future::State&gt; const&amp;)&gt;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                56 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">736</td>
+                <td><a href="../../../../../../../../executables/referenceApp/application/src/systems/DemoSystem.cpp/57bd18889995d93a100bf5c3e7fa05dc.html" class="icon-function">systems::DemoSystem::cyclic()</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

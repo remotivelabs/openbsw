@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../../middleware.html">middleware</a></li>
+        
+        <li><a href="../../../../../src.html">src</a></li>
+        
+        <li><a href="../../../../middleware.html">middleware</a></li>
+        
+        <li><a href="../../../svc.html">svc</a></li>
+        
+        <li ><a href="../../core.html">core</a>
+            </li>
+
+        
+        <li class="active"><a href="../DatabaseManipulator.cpp.html">DatabaseManipulator.cpp</a>:30
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&amp;, unsigned short)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x00042428</td>
+                <td>
+    <span class="label label-success">x-module</span>
+    
+</td>
+                <td>64 (static)</td>
+                <td>492</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (1)</th>
+                <td colspan="5">
+                
+                    <a href="../../../../../../../../build/s32k148-freertos/executables/referenceApp/middlewareConfiguration/include/generated_code/middleware/Cluster1Cluster.h/42e8f57b3d23a45c2385699f51f1276e.html">middleware::meta::ClusterConnectionCluster1ToCluster0Meta::subscribe(middleware::svc::core::ProxyBase&amp;, unsigned short) (16)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Callees (5,
+                            <span title="sum of used bytes by all callees">
+                            Σ=406
+                            </span>
+                        )
+                    
+                </th>
+                <td colspan="5">
+                
+                    <a href="./c68983294df256776b4a7b1148aaad4b.html">middleware::svc::core::meta::DbManipulator::getTransceiversByServiceId(middleware::svc::core::meta::TransceiverContainer const*, middleware::svc::core::meta::TransceiverContainer const*, unsigned short) (60)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./445424c67fcea6237014376675d3d1b1.html">middleware::svc::core::meta::DbManipulator::findTransceiver(middleware::svc::core::TransceiverBase* const&amp;, etl::ivector&lt;middleware::svc::core::TransceiverBase*, void&gt;&amp;) (160)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../../../../../../../../../../../../../unknown/unknown/7d8c66e32294c0fbcad3762662cbd6d5.html">memmove (50)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./644133afa15fe8ef8b01dece2b0d0c42.html">middleware::svc::core::meta::DbManipulator::getTransceiversByServiceIdAndServiceInstanceId(middleware::svc::core::meta::TransceiverContainer const*, middleware::svc::core::meta::TransceiverContainer const*, unsigned short, unsigned short) (132)</a>
+                    
+                        ,
+                    
+                
+                    <a href="../ProxyBase.cpp/2664aa7a5d03bf86755e9fa2a0a3cf0c.html">middleware::svc::core::ProxyBase::setAddressId(unsigned char) (4)</a>
+                    
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="./f61a05cbbd9894bba9482768e131650a.html">middleware::svc::core::meta::DbManipulator::registeredTransceiversCount(middleware::svc::core::meta::TransceiverContainer const*, middleware::svc::core::meta::TransceiverContainer const*, unsigned short) (28)</a></pre>
+    
+
+    <pre>
+
+    middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short):
+
+       42428:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+       4242c:	4617      	mov	r7, r2
+
+       4242e:	6812      	ldr	r2, [r2, #0]
+
+       42430:	b087      	sub	sp, #28
+
+       42432:	6812      	ldr	r2, [r2, #0]
+
+       42434:	4606      	mov	r6, r0
+
+       42436:	4638      	mov	r0, r7
+
+       42438:	460d      	mov	r5, r1
+
+       4243a:	4698      	mov	r8, r3
+
+       4243c:	4790      	blx	r2
+
+    _ZN10middleware3svc4core4meta13DbManipulator26getTransceiversByServiceIdEPNS2_20TransceiverContainerES5_t():
+
+       4243e:	4629      	mov	r1, r5
+
+       42440:	4602      	mov	r2, r0
+
+    middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short):
+
+       42442:	4682      	mov	sl, r0
+
+    _ZN10middleware3svc4core4meta13DbManipulator26getTransceiversByServiceIdEPNS2_20TransceiverContainerES5_t():
+
+       42444:	4630      	mov	r0, r6
+
+       42446:	f7ff fcad 	bl	41da4 <<a href="./c68983294df256776b4a7b1148aaad4b.html">middleware::svc::core::meta::DbManipulator::getTransceiversByServiceId(middleware::svc::core::meta::TransceiverContainer const*, middleware::svc::core::meta::TransceiverContainer const*, unsigned short)</a>>
+
+    middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short):
+
+       4244a:	4285      	cmp	r5, r0
+
+       4244c:	d068      	beq.n	42520 <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0xf8>
+
+       4244e:	f8d0 9000 	ldr.w	r9, [r0]
+
+       42452:	9704      	str	r7, [sp, #16]
+
+       42454:	4604      	mov	r4, r0
+
+       42456:	4649      	mov	r1, r9
+
+       42458:	a804      	add	r0, sp, #16
+
+       4245a:	f7ff fe09 	bl	42070 <<a href="./445424c67fcea6237014376675d3d1b1.html">middleware::svc::core::meta::DbManipulator::findTransceiver(middleware::svc::core::TransceiverBase* const&, etl::ivector<middleware::svc::core::TransceiverBase*, void>&)</a>>
+
+    _ZN3etl11pvoidvector3endEv():
+
+       4245e:	f8d9 2008 	ldr.w	r2, [r9, #8]
+
+    middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short):
+
+       42462:	4290      	cmp	r0, r2
+
+       42464:	d052      	beq.n	4250c <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0xe4>
+
+    _ZN3etl11pvoidvector5eraseEPPv():
+
+       42466:	1d01      	adds	r1, r0, #4
+
+    _ZN3etl8mem_moveIPvEEPT_PKS2_S5_S3_():
+
+       42468:	1a52      	subs	r2, r2, r1
+
+       4246a:	f001 fb65 	bl	43b38 <<a href="../../../../../../../../../../../../../unknown/unknown/7d8c66e32294c0fbcad3762662cbd6d5.html">memmove</a>>
+
+    _ZN3etl11pvoidvector5eraseEPPv():
+
+       4246e:	f8d9 3008 	ldr.w	r3, [r9, #8]
+
+    _ZN10middleware3svc4core15TransceiverBase13setInstanceIdEt():
+
+       42472:	f8a7 8004 	strh.w	r8, [r7, #4]
+
+    _ZN3etl11pvoidvector12emplace_backEPv():
+
+       42476:	f8c9 3008 	str.w	r3, [r9, #8]
+
+       4247a:	f843 7c04 	str.w	r7, [r3, #-4]
+
+    _ZN3etl11pvoidvector5beginEv():
+
+       4247e:	f8d9 2004 	ldr.w	r2, [r9, #4]
+
+    _ZN3etl11pvoidvector4backEv():
+
+       42482:	f8d9 3008 	ldr.w	r3, [r9, #8]
+
+    _ZN3etl11pvoidvector5beginEv():
+
+       42486:	9203      	str	r2, [sp, #12]
+
+    _ZN3etl10shell_sortIPPN10middleware3svc4core15TransceiverBaseENS3_4meta20TransceiverContainer21TransceiverComparatorEEEvT_SA_T0_():
+
+       42488:	429a      	cmp	r2, r3
+
+       4248a:	d03b      	beq.n	42504 <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0xdc>
+
+    _ZN3etl15distance_helperIPPN10middleware3svc4core15TransceiverBaseEEENS_15iterator_traitsIT_vE15difference_typeES8_S8_NS_26random_access_iterator_tagE():
+
+       4248c:	1a9b      	subs	r3, r3, r2
+
+    _ZN3etl10shell_sortIPPN10middleware3svc4core15TransceiverBaseENS3_4meta20TransceiverContainer21TransceiverComparatorEEEvT_SA_T0_():
+
+       4248e:	0fdf      	lsrs	r7, r3, #31
+
+       42490:	eb07 07a3 	add.w	r7, r7, r3, asr #2
+
+    _ZN3etl15distance_helperIPPN10middleware3svc4core15TransceiverBaseEEENS_15iterator_traitsIT_vE15difference_typeES8_S8_NS_26random_access_iterator_tagE():
+
+       42494:	109a      	asrs	r2, r3, #2
+
+    _ZN3etl10shell_sortIPPN10middleware3svc4core15TransceiverBaseENS3_4meta20TransceiverContainer21TransceiverComparatorEEEvT_SA_T0_():
+
+       42496:	2b04      	cmp	r3, #4
+
+    _ZN3etl15distance_helperIPPN10middleware3svc4core15TransceiverBaseEEENS_15iterator_traitsIT_vE15difference_typeES8_S8_NS_26random_access_iterator_tagE():
+
+       42498:	9202      	str	r2, [sp, #8]
+
+    _ZN3etl10shell_sortIPPN10middleware3svc4core15TransceiverBaseENS3_4meta20TransceiverContainer21TransceiverComparatorEEEvT_SA_T0_():
+
+       4249a:	ea4f 0767 	mov.w	r7, r7, asr #1
+
+       4249e:	dd31      	ble.n	42504 <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0xdc>
+
+       424a0:	9b02      	ldr	r3, [sp, #8]
+
+       424a2:	429f      	cmp	r7, r3
+
+       424a4:	da2c      	bge.n	42500 <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0xd8>
+
+       424a6:	ebc7 7287 	rsb	r2, r7, r7, lsl #30
+
+       424aa:	ea4f 0a82 	mov.w	sl, r2, lsl #2
+
+       424ae:	46b8      	mov	r8, r7
+
+       424b0:	ebb8 0b07 	subs.w	fp, r8, r7
+
+       424b4:	d41f      	bmi.n	424f6 <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0xce>
+
+       424b6:	9b03      	ldr	r3, [sp, #12]
+
+       424b8:	eb03 0488 	add.w	r4, r3, r8, lsl #2
+
+       424bc:	6820      	ldr	r0, [r4, #0]
+
+       424be:	f854 500a 	ldr.w	r5, [r4, sl]
+
+    _ZNK10middleware3svc4core4meta20TransceiverContainer21TransceiverComparatorclEPKNS1_15TransceiverBaseES7_():
+
+       424c2:	6803      	ldr	r3, [r0, #0]
+
+    _ZNK10middleware3svc4core15TransceiverBase13getInstanceIdEv():
+
+       424c4:	f8b0 9004 	ldrh.w	r9, [r0, #4]
+
+    _ZNK10middleware3svc4core4meta20TransceiverContainer21TransceiverComparatorclEPKNS1_15TransceiverBaseES7_():
+
+       424c8:	685b      	ldr	r3, [r3, #4]
+
+       424ca:	4798      	blx	r3
+
+       424cc:	682b      	ldr	r3, [r5, #0]
+
+       424ce:	4606      	mov	r6, r0
+
+       424d0:	4628      	mov	r0, r5
+
+    _ZNK10middleware3svc4core15TransceiverBase13getInstanceIdEv():
+
+       424d2:	88ad      	ldrh	r5, [r5, #4]
+
+    _ZNK10middleware3svc4core4meta20TransceiverContainer21TransceiverComparatorclEPKNS1_15TransceiverBaseES7_():
+
+       424d4:	685b      	ldr	r3, [r3, #4]
+
+       424d6:	4798      	blx	r3
+
+    _ZN3etlltIthEEbRKNS_4pairIT_T0_EES6_():
+
+       424d8:	45a9      	cmp	r9, r5
+
+       424da:	d302      	bcc.n	424e2 <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0xba>
+
+       424dc:	d107      	bne.n	424ee <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0xc6>
+
+       424de:	4286      	cmp	r6, r0
+
+       424e0:	d205      	bcs.n	424ee <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0xc6>
+
+    _ZN3etl4swapIPN10middleware3svc4core15TransceiverBaseEEENS_9enable_ifIXaasrNS_21is_move_constructibleIT_EE5valuesrNS_18is_move_assignableIS8_EE5valueEvE4typeERS8_SE_():
+
+       424e2:	f854 100a 	ldr.w	r1, [r4, sl]
+
+       424e6:	6823      	ldr	r3, [r4, #0]
+
+       424e8:	f844 300a 	str.w	r3, [r4, sl]
+
+       424ec:	6021      	str	r1, [r4, #0]
+
+    _ZN3etl10shell_sortIPPN10middleware3svc4core15TransceiverBaseENS3_4meta20TransceiverContainer21TransceiverComparatorEEEvT_SA_T0_():
+
+       424ee:	ebbb 0b07 	subs.w	fp, fp, r7
+
+       424f2:	4454      	add	r4, sl
+
+       424f4:	d5e2      	bpl.n	424bc <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0x94>
+
+       424f6:	9b02      	ldr	r3, [sp, #8]
+
+       424f8:	f108 0801 	add.w	r8, r8, #1
+
+       424fc:	4543      	cmp	r3, r8
+
+       424fe:	d1d7      	bne.n	424b0 <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0x88>
+
+       42500:	107f      	asrs	r7, r7, #1
+
+       42502:	d1cd      	bne.n	424a0 <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0x78>
+
+    middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short):
+
+       42504:	2000      	movs	r0, #0
+
+       42506:	b007      	add	sp, #28
+
+       42508:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+    _ZNK3etl11pvoidvector4sizeEv():
+
+       4250c:	f8d9 2004 	ldr.w	r2, [r9, #4]
+
+       42510:	1a83      	subs	r3, r0, r2
+
+    middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short):
+
+       42512:	f8d9 2000 	ldr.w	r2, [r9]
+
+       42516:	ebb2 0fa3 	cmp.w	r2, r3, asr #2
+
+       4251a:	d108      	bne.n	4252e <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0x106>
+
+       4251c:	20f3      	movs	r0, #243	@ 0xf3
+
+       4251e:	e000      	b.n	42522 <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0xfa>
+
+       42520:	20f1      	movs	r0, #241	@ 0xf1
+
+    _ZN10middleware3svc4core15TransceiverBase13setInstanceIdEt():
+
+       42522:	f64f 73ff 	movw	r3, #65535	@ 0xffff
+
+       42526:	80bb      	strh	r3, [r7, #4]
+
+    middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short):
+
+       42528:	b007      	add	sp, #28
+
+       4252a:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+       4252e:	4653      	mov	r3, sl
+
+       42530:	462a      	mov	r2, r5
+
+       42532:	f8cd 8000 	str.w	r8, [sp]
+
+       42536:	4631      	mov	r1, r6
+
+       42538:	a804      	add	r0, sp, #16
+
+       4253a:	f7ff fcf1 	bl	41f20 <<a href="./644133afa15fe8ef8b01dece2b0d0c42.html">middleware::svc::core::meta::DbManipulator::getTransceiversByServiceIdAndServiceInstanceId(middleware::svc::core::meta::TransceiverContainer const*, middleware::svc::core::meta::TransceiverContainer const*, unsigned short, unsigned short)</a>>
+
+       4253e:	e9dd a504 	ldrd	sl, r5, [sp, #16]
+
+       42542:	45aa      	cmp	sl, r5
+
+    find_if<middleware::svc::core::TransceiverBase* const*, middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, uint16_t)::<lambda(const middleware::svc::core::TransceiverBase*)> >():
+
+       42544:	d011      	beq.n	4256a <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0x142>
+
+       42546:	46d3      	mov	fp, sl
+
+       42548:	e001      	b.n	4254e <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0x126>
+
+       4254a:	455d      	cmp	r5, fp
+
+       4254c:	d00e      	beq.n	4256c <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0x144>
+
+       4254e:	465e      	mov	r6, fp
+
+       42550:	f85b 0b04 	ldr.w	r0, [fp], #4
+
+    middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short):
+
+       42554:	6803      	ldr	r3, [r0, #0]
+
+    operator()():
+
+       42556:	685b      	ldr	r3, [r3, #4]
+
+       42558:	4798      	blx	r3
+
+       4255a:	88e1      	ldrh	r1, [r4, #6]
+
+    find_if<middleware::svc::core::TransceiverBase* const*, middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, uint16_t)::<lambda(const middleware::svc::core::TransceiverBase*)> >():
+
+       4255c:	4288      	cmp	r0, r1
+
+       4255e:	d1f4      	bne.n	4254a <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0x122>
+
+    middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short):
+
+       42560:	42ae      	cmp	r6, r5
+
+       42562:	d003      	beq.n	4256c <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0x144>
+
+       42564:	3001      	adds	r0, #1
+
+       42566:	80e0      	strh	r0, [r4, #6]
+
+       42568:	e7eb      	b.n	42542 <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0x11a>
+
+       4256a:	88e1      	ldrh	r1, [r4, #6]
+
+       4256c:	b2c9      	uxtb	r1, r1
+
+       4256e:	4638      	mov	r0, r7
+
+       42570:	f000 fc4a 	bl	42e08 <<a href="../ProxyBase.cpp/2664aa7a5d03bf86755e9fa2a0a3cf0c.html">middleware::svc::core::ProxyBase::setAddressId(unsigned char)</a>>
+
+       42574:	88e3      	ldrh	r3, [r4, #6]
+
+       42576:	3301      	adds	r3, #1
+
+       42578:	80e3      	strh	r3, [r4, #6]
+
+    _ZN3etl11pvoidvector12emplace_backEPv():
+
+       4257a:	f8d9 3008 	ldr.w	r3, [r9, #8]
+
+    _ZN10middleware3svc4core15TransceiverBase13setInstanceIdEt():
+
+       4257e:	f8a7 8004 	strh.w	r8, [r7, #4]
+
+    _ZN3etl11pvoidvector12emplace_backEPv():
+
+       42582:	1d1a      	adds	r2, r3, #4
+
+       42584:	f8c9 2008 	str.w	r2, [r9, #8]
+
+       42588:	601f      	str	r7, [r3, #0]
+
+    _ZN3etl11pvoidvector5beginEv():
+
+       4258a:	f8d9 2004 	ldr.w	r2, [r9, #4]
+
+    _ZN3etl11pvoidvector4backEv():
+
+       4258e:	f8d9 3008 	ldr.w	r3, [r9, #8]
+
+    _ZN3etl11pvoidvector5beginEv():
+
+       42592:	9203      	str	r2, [sp, #12]
+
+    _ZN3etl10shell_sortIPPN10middleware3svc4core15TransceiverBaseENS3_4meta20TransceiverContainer21TransceiverComparatorEEEvT_SA_T0_():
+
+       42594:	429a      	cmp	r2, r3
+
+       42596:	d0b5      	beq.n	42504 <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0xdc>
+
+    _ZN3etl15distance_helperIPPN10middleware3svc4core15TransceiverBaseEEENS_15iterator_traitsIT_vE15difference_typeES8_S8_NS_26random_access_iterator_tagE():
+
+       42598:	1a9b      	subs	r3, r3, r2
+
+    _ZN3etl10shell_sortIPPN10middleware3svc4core15TransceiverBaseENS3_4meta20TransceiverContainer21TransceiverComparatorEEEvT_SA_T0_():
+
+       4259a:	0fdf      	lsrs	r7, r3, #31
+
+       4259c:	eb07 07a3 	add.w	r7, r7, r3, asr #2
+
+    _ZN3etl15distance_helperIPPN10middleware3svc4core15TransceiverBaseEEENS_15iterator_traitsIT_vE15difference_typeES8_S8_NS_26random_access_iterator_tagE():
+
+       425a0:	109a      	asrs	r2, r3, #2
+
+    _ZN3etl10shell_sortIPPN10middleware3svc4core15TransceiverBaseENS3_4meta20TransceiverContainer21TransceiverComparatorEEEvT_SA_T0_():
+
+       425a2:	2b04      	cmp	r3, #4
+
+    _ZN3etl15distance_helperIPPN10middleware3svc4core15TransceiverBaseEEENS_15iterator_traitsIT_vE15difference_typeES8_S8_NS_26random_access_iterator_tagE():
+
+       425a4:	9202      	str	r2, [sp, #8]
+
+    _ZN3etl10shell_sortIPPN10middleware3svc4core15TransceiverBaseENS3_4meta20TransceiverContainer21TransceiverComparatorEEEvT_SA_T0_():
+
+       425a6:	ea4f 0767 	mov.w	r7, r7, asr #1
+
+       425aa:	ddab      	ble.n	42504 <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0xdc>
+
+       425ac:	9b02      	ldr	r3, [sp, #8]
+
+       425ae:	42bb      	cmp	r3, r7
+
+       425b0:	dd2c      	ble.n	4260c <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0x1e4>
+
+       425b2:	ebc7 7287 	rsb	r2, r7, r7, lsl #30
+
+       425b6:	ea4f 0a82 	mov.w	sl, r2, lsl #2
+
+       425ba:	46b8      	mov	r8, r7
+
+       425bc:	ebb8 0b07 	subs.w	fp, r8, r7
+
+       425c0:	d41f      	bmi.n	42602 <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0x1da>
+
+       425c2:	9b03      	ldr	r3, [sp, #12]
+
+       425c4:	eb03 0488 	add.w	r4, r3, r8, lsl #2
+
+       425c8:	6820      	ldr	r0, [r4, #0]
+
+       425ca:	f854 500a 	ldr.w	r5, [r4, sl]
+
+    _ZNK10middleware3svc4core4meta20TransceiverContainer21TransceiverComparatorclEPKNS1_15TransceiverBaseES7_():
+
+       425ce:	6803      	ldr	r3, [r0, #0]
+
+    _ZNK10middleware3svc4core15TransceiverBase13getInstanceIdEv():
+
+       425d0:	f8b0 9004 	ldrh.w	r9, [r0, #4]
+
+    _ZNK10middleware3svc4core4meta20TransceiverContainer21TransceiverComparatorclEPKNS1_15TransceiverBaseES7_():
+
+       425d4:	685b      	ldr	r3, [r3, #4]
+
+       425d6:	4798      	blx	r3
+
+       425d8:	682b      	ldr	r3, [r5, #0]
+
+       425da:	4606      	mov	r6, r0
+
+       425dc:	4628      	mov	r0, r5
+
+    _ZNK10middleware3svc4core15TransceiverBase13getInstanceIdEv():
+
+       425de:	88ad      	ldrh	r5, [r5, #4]
+
+    _ZNK10middleware3svc4core4meta20TransceiverContainer21TransceiverComparatorclEPKNS1_15TransceiverBaseES7_():
+
+       425e0:	685b      	ldr	r3, [r3, #4]
+
+       425e2:	4798      	blx	r3
+
+    _ZN3etlltIthEEbRKNS_4pairIT_T0_EES6_():
+
+       425e4:	45a9      	cmp	r9, r5
+
+       425e6:	d302      	bcc.n	425ee <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0x1c6>
+
+       425e8:	d107      	bne.n	425fa <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0x1d2>
+
+       425ea:	4286      	cmp	r6, r0
+
+       425ec:	d205      	bcs.n	425fa <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0x1d2>
+
+    _ZN3etl4swapIPN10middleware3svc4core15TransceiverBaseEEENS_9enable_ifIXaasrNS_21is_move_constructibleIT_EE5valuesrNS_18is_move_assignableIS8_EE5valueEvE4typeERS8_SE_():
+
+       425ee:	f854 100a 	ldr.w	r1, [r4, sl]
+
+       425f2:	6823      	ldr	r3, [r4, #0]
+
+       425f4:	f844 300a 	str.w	r3, [r4, sl]
+
+       425f8:	6021      	str	r1, [r4, #0]
+
+    _ZN3etl10shell_sortIPPN10middleware3svc4core15TransceiverBaseENS3_4meta20TransceiverContainer21TransceiverComparatorEEEvT_SA_T0_():
+
+       425fa:	ebbb 0b07 	subs.w	fp, fp, r7
+
+       425fe:	4454      	add	r4, sl
+
+       42600:	d5e2      	bpl.n	425c8 <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0x1a0>
+
+       42602:	9b02      	ldr	r3, [sp, #8]
+
+       42604:	f108 0801 	add.w	r8, r8, #1
+
+       42608:	4543      	cmp	r3, r8
+
+       4260a:	d1d7      	bne.n	425bc <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0x194>
+
+       4260c:	107f      	asrs	r7, r7, #1
+
+       4260e:	d1cd      	bne.n	425ac <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0x184>
+
+       42610:	e778      	b.n	42504 <<a href="./6c9b84320c06a6714c93aac9816964bb.html">middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short)</a>+0xdc>
+
+    middleware::svc::core::meta::DbManipulator::subscribe(middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::meta::TransceiverContainer*, middleware::svc::core::ProxyBase&, unsigned short):
+
+       42612:	bf00      	nop
+
+    </pre>
+
+    
+    <pre><a href="../../../../../include/middleware/svc/core/SkeletonBase.h/3269e76a602d3d469af66ce45fe4b25e.html">middleware::svc::core::SkeletonBase::getProcessId() const (8)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 112</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 160</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    112
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">160</td>
+                <td><a href="./445424c67fcea6237014376675d3d1b1.html" class="icon-function">middleware::svc::core::meta::DbManipulator::findTransceiver(middleware::svc::core::TransceiverBase* const&amp;, etl::ivector&lt;middleware::svc::core::TransceiverBase*, void&gt;&amp;)</a></td>
+            </tr>
+        
+        </tbody>
+        
+        <tfoot>
+            <tr>
+                <th></th>
+                <th class="col_size">64
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+    </table>
+        
+        
+            <p>No callers for this function.</p>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>

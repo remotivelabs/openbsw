@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../../../../../../../../../static/css/style.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Symbol - puncover</title>
+    
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="page-header">
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="../../../../../../../../../../../../../index.html">
+                    Puncover
+                  </a>
+                </div>
+              </div>
+            </nav>
+          
+        </div>
+        <div id="inner_content">
+        
+    
+    <ol class="breadcrumb folders">
+        
+        <li><a href="../../../../../../../../../../../../../home.html">home</a></li>
+        
+        <li><a href="../../../../../../../../../../../../runner.html">runner</a></li>
+        
+        <li><a href="../../../../../../../../../../../work.html">work</a></li>
+        
+        <li><a href="../../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../../openbsw.html">openbsw</a></li>
+        
+        <li><a href="../../../../../../../../libs.html">libs</a></li>
+        
+        <li><a href="../../../../../../../bsw.html">bsw</a></li>
+        
+        <li><a href="../../../../../../middleware.html">middleware</a></li>
+        
+        <li><a href="../../../../../src.html">src</a></li>
+        
+        <li><a href="../../../../middleware.html">middleware</a></li>
+        
+        <li><a href="../../../svc.html">svc</a></li>
+        
+        <li ><a href="../../core.html">core</a>
+            </li>
+
+        
+        <li class="active"><a href="../LoggerApi.cpp.html">LoggerApi.cpp</a>:45
+            </li>
+        
+    </ol>
+
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Function</th>
+                <td colspan="5">
+                    <span class="icon-function">middleware::logger::(anonymous namespace)::serialize(etl::byte_stream_writer&amp;, middleware::svc::core::Message const&amp;)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <th rowspan="2"></th>
+                <th>Address</th>
+                <th>Remarks</th>
+                <th>Stack</th>
+                <th>Code</th>
+                <th>Static</th>
+            </tr>
+            <tr>
+                <td>0x000427c0</td>
+                <td>
+    
+    
+</td>
+                <td>24 (static)</td>
+                <td>280</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <th>Callers (2)</th>
+                <td colspan="5">
+                
+                    <a href="./fb14346d08a0d5e4c0c3718697d64fba.html">middleware::logger::logAllocationFailure(middleware::logger::LogLevel, middleware::logger::Error, middleware::svc::core::HRESULT, middleware::svc::core::Message const&amp;, unsigned long) (416)</a>
+                    
+                        ,
+                    
+                
+                    <a href="./760f09021e211b94ec1f2f6e449052d2.html">middleware::logger::logMessageSendingFailure(middleware::logger::LogLevel, middleware::logger::Error, middleware::svc::core::HRESULT, middleware::svc::core::Message const&amp;) (284)</a>
+                    
+                
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    No Callees
+                    
+                </th>
+                <td colspan="5">
+                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <pre><a href="../IClusterConnectionConfigurationBase.cpp/67ef0cd8d00aefb64b8fb9443544e908.html">middleware::svc::core::IClusterConnectionConfigurationBase::dispatchMessageToSkeleton(middleware::svc::core::meta::TransceiverContainer const*, middleware::svc::core::meta::TransceiverContainer const*, middleware::svc::core::Message const&amp;) (60)</a></pre>
+    
+
+    <pre>
+
+    middleware::logger::(anonymous namespace)::serialize(etl::byte_stream_writer&, middleware::svc::core::Message const&):
+
+       427c0:	b570      	push	{r4, r5, r6, lr}
+
+    _ZN3etl18byte_stream_writer8to_bytesIhEENS_9enable_ifIXeqstT_Lj1EEvE4typeES3_():
+
+       427c2:	6843      	ldr	r3, [r0, #4]
+
+    middleware::logger::(anonymous namespace)::serialize(etl::byte_stream_writer&, middleware::svc::core::Message const&):
+
+       427c4:	7a0a      	ldrb	r2, [r1, #8]
+
+       427c6:	b082      	sub	sp, #8
+
+    _ZN3etl18byte_stream_writer8to_bytesIhEENS_9enable_ifIXeqstT_Lj1EEvE4typeES3_():
+
+       427c8:	701a      	strb	r2, [r3, #0]
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       427ca:	6843      	ldr	r3, [r0, #4]
+
+    _ZNK3etl8delegateIFvNS_4spanIcLj4294967295EEEEE8is_validEv():
+
+       427cc:	6946      	ldr	r6, [r0, #20]
+
+    middleware::logger::(anonymous namespace)::serialize(etl::byte_stream_writer&, middleware::svc::core::Message const&):
+
+       427ce:	4604      	mov	r4, r0
+
+       427d0:	460d      	mov	r5, r1
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       427d2:	1c5a      	adds	r2, r3, #1
+
+    _ZNK3etl8delegateIFvNS_4spanIcLj4294967295EEEEE7call_ifIvEENS_9enable_ifIXsrNS_7is_sameIT_vEE5valueEbE4typeES2_():
+
+       427d4:	b136      	cbz	r6, 427e4 <<a href="./b01842d4dee1cef17c2dd91b42da2baf.html">middleware::logger::(anonymous namespace)::serialize(etl::byte_stream_writer&, middleware::svc::core::Message const&)</a>+0x24>
+
+    _ZN3etl4spanIcLj4294967295EEC4ERKS1_():
+
+       427d6:	e9cd 3200 	strd	r3, r2, [sp]
+
+    _ZNK3etl8delegateIFvNS_4spanIcLj4294967295EEEEE7call_ifIvEENS_9enable_ifIXsrNS_7is_sameIT_vEE5valueEbE4typeES2_():
+
+       427da:	4669      	mov	r1, sp
+
+       427dc:	3010      	adds	r0, #16
+
+       427de:	47b0      	blx	r6
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       427e0:	6863      	ldr	r3, [r4, #4]
+
+       427e2:	1c5a      	adds	r2, r3, #1
+
+       427e4:	6062      	str	r2, [r4, #4]
+
+    middleware::logger::(anonymous namespace)::serialize(etl::byte_stream_writer&, middleware::svc::core::Message const&):
+
+       427e6:	7a6a      	ldrb	r2, [r5, #9]
+
+    _ZN3etl18byte_stream_writer8to_bytesIhEENS_9enable_ifIXeqstT_Lj1EEvE4typeES3_():
+
+       427e8:	705a      	strb	r2, [r3, #1]
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       427ea:	6862      	ldr	r2, [r4, #4]
+
+    _ZNK3etl8delegateIFvNS_4spanIcLj4294967295EEEEE8is_validEv():
+
+       427ec:	6963      	ldr	r3, [r4, #20]
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       427ee:	1c51      	adds	r1, r2, #1
+
+    _ZNK3etl8delegateIFvNS_4spanIcLj4294967295EEEEE7call_ifIvEENS_9enable_ifIXsrNS_7is_sameIT_vEE5valueEbE4typeES2_():
+
+       427f0:	b13b      	cbz	r3, 42802 <<a href="./b01842d4dee1cef17c2dd91b42da2baf.html">middleware::logger::(anonymous namespace)::serialize(etl::byte_stream_writer&, middleware::svc::core::Message const&)</a>+0x42>
+
+    _ZN3etl4spanIcLj4294967295EEC4ERKS1_():
+
+       427f2:	e9cd 2100 	strd	r2, r1, [sp]
+
+    _ZNK3etl8delegateIFvNS_4spanIcLj4294967295EEEEE7call_ifIvEENS_9enable_ifIXsrNS_7is_sameIT_vEE5valueEbE4typeES2_():
+
+       427f6:	f104 0010 	add.w	r0, r4, #16
+
+       427fa:	4669      	mov	r1, sp
+
+       427fc:	4798      	blx	r3
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       427fe:	6862      	ldr	r2, [r4, #4]
+
+       42800:	1c51      	adds	r1, r2, #1
+
+    middleware::logger::(anonymous namespace)::serialize(etl::byte_stream_writer&, middleware::svc::core::Message const&):
+
+       42802:	882b      	ldrh	r3, [r5, #0]
+
+    _ZNK3etl18byte_stream_writer10copy_valueEPKcPcj():
+
+       42804:	89a6      	ldrh	r6, [r4, #12]
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       42806:	6061      	str	r1, [r4, #4]
+
+    _ZNK3etl18byte_stream_writer10copy_valueEPKcPcj():
+
+       42808:	f240 40d2 	movw	r0, #1234	@ 0x4d2
+
+       4280c:	0a19      	lsrs	r1, r3, #8
+
+    _ZN3etl4copyIPKcPcEET0_T_S5_S4_():
+
+       4280e:	4286      	cmp	r6, r0
+
+       42810:	b2db      	uxtb	r3, r3
+
+       42812:	4608      	mov	r0, r1
+
+       42814:	bf04      	itt	eq
+
+       42816:	4619      	moveq	r1, r3
+
+       42818:	4603      	moveq	r3, r0
+
+       4281a:	7051      	strb	r1, [r2, #1]
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       4281c:	7093      	strb	r3, [r2, #2]
+
+       4281e:	6862      	ldr	r2, [r4, #4]
+
+    _ZNK3etl8delegateIFvNS_4spanIcLj4294967295EEEEE8is_validEv():
+
+       42820:	6963      	ldr	r3, [r4, #20]
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       42822:	1c91      	adds	r1, r2, #2
+
+    _ZNK3etl8delegateIFvNS_4spanIcLj4294967295EEEEE7call_ifIvEENS_9enable_ifIXsrNS_7is_sameIT_vEE5valueEbE4typeES2_():
+
+       42824:	b13b      	cbz	r3, 42836 <<a href="./b01842d4dee1cef17c2dd91b42da2baf.html">middleware::logger::(anonymous namespace)::serialize(etl::byte_stream_writer&, middleware::svc::core::Message const&)</a>+0x76>
+
+    _ZN3etl4spanIcLj4294967295EEC4ERKS1_():
+
+       42826:	e9cd 2100 	strd	r2, r1, [sp]
+
+    _ZNK3etl8delegateIFvNS_4spanIcLj4294967295EEEEE7call_ifIvEENS_9enable_ifIXsrNS_7is_sameIT_vEE5valueEbE4typeES2_():
+
+       4282a:	f104 0010 	add.w	r0, r4, #16
+
+       4282e:	4669      	mov	r1, sp
+
+       42830:	4798      	blx	r3
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       42832:	6862      	ldr	r2, [r4, #4]
+
+       42834:	1c91      	adds	r1, r2, #2
+
+    middleware::logger::(anonymous namespace)::serialize(etl::byte_stream_writer&, middleware::svc::core::Message const&):
+
+       42836:	88eb      	ldrh	r3, [r5, #6]
+
+    _ZNK3etl18byte_stream_writer10copy_valueEPKcPcj():
+
+       42838:	89a6      	ldrh	r6, [r4, #12]
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       4283a:	6061      	str	r1, [r4, #4]
+
+    _ZNK3etl18byte_stream_writer10copy_valueEPKcPcj():
+
+       4283c:	f240 40d2 	movw	r0, #1234	@ 0x4d2
+
+       42840:	0a19      	lsrs	r1, r3, #8
+
+    _ZN3etl4copyIPKcPcEET0_T_S5_S4_():
+
+       42842:	4286      	cmp	r6, r0
+
+       42844:	b2db      	uxtb	r3, r3
+
+       42846:	4608      	mov	r0, r1
+
+       42848:	bf04      	itt	eq
+
+       4284a:	4619      	moveq	r1, r3
+
+       4284c:	4603      	moveq	r3, r0
+
+       4284e:	7091      	strb	r1, [r2, #2]
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       42850:	70d3      	strb	r3, [r2, #3]
+
+       42852:	6862      	ldr	r2, [r4, #4]
+
+    _ZNK3etl8delegateIFvNS_4spanIcLj4294967295EEEEE8is_validEv():
+
+       42854:	6963      	ldr	r3, [r4, #20]
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       42856:	1c91      	adds	r1, r2, #2
+
+    _ZNK3etl8delegateIFvNS_4spanIcLj4294967295EEEEE7call_ifIvEENS_9enable_ifIXsrNS_7is_sameIT_vEE5valueEbE4typeES2_():
+
+       42858:	b13b      	cbz	r3, 4286a <<a href="./b01842d4dee1cef17c2dd91b42da2baf.html">middleware::logger::(anonymous namespace)::serialize(etl::byte_stream_writer&, middleware::svc::core::Message const&)</a>+0xaa>
+
+    _ZN3etl4spanIcLj4294967295EEC4ERKS1_():
+
+       4285a:	e9cd 2100 	strd	r2, r1, [sp]
+
+    _ZNK3etl8delegateIFvNS_4spanIcLj4294967295EEEEE7call_ifIvEENS_9enable_ifIXsrNS_7is_sameIT_vEE5valueEbE4typeES2_():
+
+       4285e:	f104 0010 	add.w	r0, r4, #16
+
+       42862:	4669      	mov	r1, sp
+
+       42864:	4798      	blx	r3
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       42866:	6862      	ldr	r2, [r4, #4]
+
+       42868:	1c91      	adds	r1, r2, #2
+
+    middleware::logger::(anonymous namespace)::serialize(etl::byte_stream_writer&, middleware::svc::core::Message const&):
+
+       4286a:	886b      	ldrh	r3, [r5, #2]
+
+    _ZNK3etl18byte_stream_writer10copy_valueEPKcPcj():
+
+       4286c:	89a6      	ldrh	r6, [r4, #12]
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       4286e:	6061      	str	r1, [r4, #4]
+
+    _ZNK3etl18byte_stream_writer10copy_valueEPKcPcj():
+
+       42870:	f240 40d2 	movw	r0, #1234	@ 0x4d2
+
+       42874:	0a19      	lsrs	r1, r3, #8
+
+    _ZN3etl4copyIPKcPcEET0_T_S5_S4_():
+
+       42876:	4286      	cmp	r6, r0
+
+       42878:	b2db      	uxtb	r3, r3
+
+       4287a:	4608      	mov	r0, r1
+
+       4287c:	bf04      	itt	eq
+
+       4287e:	4619      	moveq	r1, r3
+
+       42880:	4603      	moveq	r3, r0
+
+       42882:	7091      	strb	r1, [r2, #2]
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       42884:	70d3      	strb	r3, [r2, #3]
+
+       42886:	6862      	ldr	r2, [r4, #4]
+
+    _ZNK3etl8delegateIFvNS_4spanIcLj4294967295EEEEE8is_validEv():
+
+       42888:	6963      	ldr	r3, [r4, #20]
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       4288a:	1c91      	adds	r1, r2, #2
+
+    _ZNK3etl8delegateIFvNS_4spanIcLj4294967295EEEEE7call_ifIvEENS_9enable_ifIXsrNS_7is_sameIT_vEE5valueEbE4typeES2_():
+
+       4288c:	b13b      	cbz	r3, 4289e <<a href="./b01842d4dee1cef17c2dd91b42da2baf.html">middleware::logger::(anonymous namespace)::serialize(etl::byte_stream_writer&, middleware::svc::core::Message const&)</a>+0xde>
+
+    _ZN3etl4spanIcLj4294967295EEC4ERKS1_():
+
+       4288e:	e9cd 2100 	strd	r2, r1, [sp]
+
+    _ZNK3etl8delegateIFvNS_4spanIcLj4294967295EEEEE7call_ifIvEENS_9enable_ifIXsrNS_7is_sameIT_vEE5valueEbE4typeES2_():
+
+       42892:	f104 0010 	add.w	r0, r4, #16
+
+       42896:	4669      	mov	r1, sp
+
+       42898:	4798      	blx	r3
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       4289a:	6862      	ldr	r2, [r4, #4]
+
+       4289c:	1c91      	adds	r1, r2, #2
+
+    middleware::logger::(anonymous namespace)::serialize(etl::byte_stream_writer&, middleware::svc::core::Message const&):
+
+       4289e:	88ab      	ldrh	r3, [r5, #4]
+
+    _ZNK3etl18byte_stream_writer10copy_valueEPKcPcj():
+
+       428a0:	89a5      	ldrh	r5, [r4, #12]
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       428a2:	6061      	str	r1, [r4, #4]
+
+    _ZNK3etl18byte_stream_writer10copy_valueEPKcPcj():
+
+       428a4:	f240 40d2 	movw	r0, #1234	@ 0x4d2
+
+       428a8:	0a19      	lsrs	r1, r3, #8
+
+    _ZN3etl4copyIPKcPcEET0_T_S5_S4_():
+
+       428aa:	4285      	cmp	r5, r0
+
+       428ac:	b2db      	uxtb	r3, r3
+
+       428ae:	4608      	mov	r0, r1
+
+       428b0:	bf04      	itt	eq
+
+       428b2:	4619      	moveq	r1, r3
+
+       428b4:	4603      	moveq	r3, r0
+
+       428b6:	70d3      	strb	r3, [r2, #3]
+
+       428b8:	7091      	strb	r1, [r2, #2]
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       428ba:	6861      	ldr	r1, [r4, #4]
+
+    _ZNK3etl8delegateIFvNS_4spanIcLj4294967295EEEEE8is_validEv():
+
+       428bc:	6962      	ldr	r2, [r4, #20]
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       428be:	1c8b      	adds	r3, r1, #2
+
+    _ZNK3etl8delegateIFvNS_4spanIcLj4294967295EEEEE7call_ifIvEENS_9enable_ifIXsrNS_7is_sameIT_vEE5valueEbE4typeES2_():
+
+       428c0:	b13a      	cbz	r2, 428d2 <<a href="./b01842d4dee1cef17c2dd91b42da2baf.html">middleware::logger::(anonymous namespace)::serialize(etl::byte_stream_writer&, middleware::svc::core::Message const&)</a>+0x112>
+
+    _ZN3etl4spanIcLj4294967295EEC4ERKS1_():
+
+       428c2:	e9cd 1300 	strd	r1, r3, [sp]
+
+    _ZNK3etl8delegateIFvNS_4spanIcLj4294967295EEEEE7call_ifIvEENS_9enable_ifIXsrNS_7is_sameIT_vEE5valueEbE4typeES2_():
+
+       428c6:	f104 0010 	add.w	r0, r4, #16
+
+       428ca:	4669      	mov	r1, sp
+
+       428cc:	4790      	blx	r2
+
+    _ZN3etl18byte_stream_writer4stepEj():
+
+       428ce:	6863      	ldr	r3, [r4, #4]
+
+       428d0:	3302      	adds	r3, #2
+
+       428d2:	6063      	str	r3, [r4, #4]
+
+    middleware::logger::(anonymous namespace)::serialize(etl::byte_stream_writer&, middleware::svc::core::Message const&):
+
+       428d4:	b002      	add	sp, #8
+
+       428d6:	bd70      	pop	{r4, r5, r6, pc}
+
+    </pre>
+
+    
+    <pre><a href="./fb14346d08a0d5e4c0c3718697d64fba.html">middleware::logger::logAllocationFailure(middleware::logger::LogLevel, middleware::logger::Error, middleware::svc::core::HRESULT, middleware::svc::core::Message const&amp;, unsigned long) (416)</a></pre>
+    
+
+    
+        <h1>Stack Worst-Case Scenarios</h1>
+        
+            <p>No callees for this function.</p>
+        
+        
+        <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th colspan="2" style="text-align: center">Stack</th>
+                <th colspan="2" style="text-align: center">Code</th>
+                <th rowspan="2" width="100%">Name</th>
+            </tr>
+            <tr>
+                <th class="col_size">&sum; = 744</th>
+                <th class="col_size"></th>
+                <th class="col_size">&sum;= 1,856</th>
+                <th class="col_size"></th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <th>1</th>
+                <td class="col_size">
+                    
+                    744
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,856
+                    
+                    
+                </td>
+                <td class="col_size">280</td>
+                <td><a href="./b01842d4dee1cef17c2dd91b42da2baf.html" class="icon-function">middleware::logger::(anonymous namespace)::serialize(etl::byte_stream_writer&amp;, middleware::svc::core::Message const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>2</th>
+                <td class="col_size">
+                    
+                    720
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                480 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,576
+                    
+                    
+                </td>
+                <td class="col_size">416</td>
+                <td><a href="./fb14346d08a0d5e4c0c3718697d64fba.html" class="icon-function">middleware::logger::logAllocationFailure(middleware::logger::LogLevel, middleware::logger::Error, middleware::svc::core::HRESULT, middleware::svc::core::Message const&amp;, unsigned long)</a></td>
+            </tr>
+        
+            <tr>
+                <th>3</th>
+                <td class="col_size">
+                    
+                    240
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                48 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,160
+                    
+                    
+                </td>
+                <td class="col_size">136</td>
+                <td><a href="../MessagePayloadBuilder.cpp/7fb6001851e211f13b199c6c2ff83d5b.html" class="icon-function">middleware::svc::core::MessagePayloadBuilder::deallocate(middleware::svc::core::Message const&amp;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>4</th>
+                <td class="col_size">
+                    
+                    192
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                24 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    1,024
+                    
+                    
+                </td>
+                <td class="col_size">152</td>
+                <td><a href="../../rpc/ProxyMethodImpl.cpp/b63cafd2812e9c11564b72b23aee7bd0.html" class="icon-function">middleware::svc::rpc::ProxyMethodImpl::callMethod(middleware::svc::core::ProxyBase const&amp;, middleware::svc::core::Message&amp;, middleware::svc::core::HRESULT)</a></td>
+            </tr>
+        
+            <tr>
+                <th>5</th>
+                <td class="col_size">
+                    
+                    168
+                    
+                    
+                </td>
+                <td class="col_size">
+            
+                112 
+            
+                </td>
+                <td class="col_size">
+                    
+                    
+                    872
+                    
+                    
+                </td>
+                <td class="col_size">136</td>
+                <td><a href="../../../../../../../../build/s32k148-freertos/executables/referenceApp/middlewareConfiguration/src/generated_code/org/test/foo/FooProxy.cpp/799c46b4bbb125372974865a00ad8ece.html" class="icon-function">org::test::foo::Foo::proxy::FooDefaultAttribute::get(etl::delegate&lt;void (etl::expected&lt;etl::reference_wrapper&lt;org::test::foo::Foo::FooStruct const&gt;, middleware::svc::core::Future::State&gt; const&amp;)&gt;)</a></td>
+            </tr>
+        
+            <tr>
+                <th>6</th>
+                <td class="col_size">
+                </td>
+                <td class="col_size">
+            
+                56 
+            
+                </td>
+                <td class="col_size">
+                    
+                </td>
+                <td class="col_size">736</td>
+                <td><a href="../../../../../../../../executables/referenceApp/application/src/systems/DemoSystem.cpp/57bd18889995d93a100bf5c3e7fa05dc.html" class="icon-function">systems::DemoSystem::cyclic()</a></td>
+            </tr>
+        
+        </tbody>
+        
+    </table>
+        
+    
+
+
+        </div>
+    <div id="page-footer">
+        <hr>
+        
+            brought to you with 💖
+            by <a href="https://twitter.com/hbehrens">Heiko Behrens</a>
+            <span class="secondary">– MIT license, copyright © 2014-2026</span>
+        
+    </div>
+    </div>
+</body>
+</html>
