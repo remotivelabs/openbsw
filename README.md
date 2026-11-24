@@ -12,6 +12,9 @@
 
 # Eclipse OpenBSW
 
+> This is the Remotive Labs fork of Eclipse OpenBSW, used to build the RemotiveCar BCM. What it changes and how its
+> branches are organized is in [REMOTIVELABS.md](REMOTIVELABS.md).
+
 
 ## Build Status 🚀
 
