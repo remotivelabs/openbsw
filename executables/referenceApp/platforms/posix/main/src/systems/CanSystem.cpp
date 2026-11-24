@@ -19,23 +19,31 @@ static int const MAX_RECEIVED_PER_RUN          = 3;
 namespace
 {
 
+#if defined(PLATFORM_CAN0_USE_FD)
+bool const USE_CAN_FD = true;
+#else
+bool const USE_CAN_FD = false;
+#endif
+
 // clang-format off
-::can::SocketCanTransceiver::DeviceConfig canConfig
+::can::SocketCanTransceiver::DeviceConfig can0Config
 {
     "vcan0", ::busid::CAN_0,
-#if defined(PLATFORM_CAN0_USE_FD)
-        true, /*enableCanFd*/
-        true  /*enableBitRateSwitch*/
-#else
-        false, /*enableCanFd*/
-        false  /*enableBitRateSwitch*/
-#endif
+    USE_CAN_FD, /*enableCanFd*/
+    USE_CAN_FD  /*enableBitRateSwitch*/
+};
+
+::can::SocketCanTransceiver::DeviceConfig can1Config
+{
+    "vcan1", ::busid::CAN_1,
+    USE_CAN_FD, /*enableCanFd*/
+    USE_CAN_FD  /*enableBitRateSwitch*/
 };
 // clang-format on
 } // namespace
 
 CanSystem::CanSystem(::async::ContextType context)
-: _timeout(), _context(context), _canTransceiver(canConfig)
+: _timeout(), _context(context), _can0Transceiver(can0Config), _can1Transceiver(can1Config)
 {
     setTransitionContext(context);
 }
@@ -44,8 +52,10 @@ void CanSystem::init() { transitionDone(); }
 
 void CanSystem::run()
 {
-    _canTransceiver.init();
-    _canTransceiver.open();
+    _can0Transceiver.init();
+    _can0Transceiver.open();
+    _can1Transceiver.init();
+    _can1Transceiver.open();
     ::async::scheduleAtFixedRate(
         _context, *this, _timeout, TIMEOUT_CAN_SYSTEM_IN_MS, ::async::TimeUnit::MILLISECONDS);
     transitionDone();
@@ -54,8 +64,10 @@ void CanSystem::run()
 void CanSystem::shutdown()
 {
     _timeout.cancel();
-    _canTransceiver.close();
-    _canTransceiver.shutdown();
+    _can1Transceiver.close();
+    _can1Transceiver.shutdown();
+    _can0Transceiver.close();
+    _can0Transceiver.shutdown();
     transitionDone();
 }
 
@@ -63,11 +75,19 @@ void CanSystem::shutdown()
 {
     if (busId == ::busid::CAN_0)
     {
-        return &_canTransceiver;
+        return &_can0Transceiver;
+    }
+    if (busId == ::busid::CAN_1)
+    {
+        return &_can1Transceiver;
     }
     return nullptr;
 }
 
-void CanSystem::execute() { _canTransceiver.run(MAX_SENT_PER_RUN, MAX_RECEIVED_PER_RUN); }
+void CanSystem::execute()
+{
+    _can0Transceiver.run(MAX_SENT_PER_RUN, MAX_RECEIVED_PER_RUN);
+    _can1Transceiver.run(MAX_SENT_PER_RUN, MAX_RECEIVED_PER_RUN);
+}
 
 } // namespace systems
