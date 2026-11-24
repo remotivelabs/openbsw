@@ -9,7 +9,8 @@
 # *******************************************************************************
 
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
-load("//bazel/config/build_variant:compatibility.bzl", "reference_app_posix_only")
+load("@rules_cc//cc:cc_test.bzl", "cc_test")
+load("//bazel/config/build_variant:compatibility.bzl", "reference_app_posix_only", "unit_test_only")
 
 cc_library(
     name = "freertos_core_configuration",
@@ -17,4 +18,14 @@ cc_library(
     strip_include_prefix = "include",
     target_compatible_with = reference_app_posix_only(),
     visibility = ["//visibility:public"],
+)
+
+cc_test(
+    name = "freertos_platform_config_test",
+    srcs = ["test/src/os/FreeRtosPlatformConfigTest.cpp"],
+    target_compatible_with = unit_test_only(),
+    deps = [
+        ":freertos_core_configuration",
+        "//libs/3rdparty/googletest:gtest_main",
+    ],
 )
