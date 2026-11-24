@@ -13,8 +13,8 @@
 namespace systems
 {
 static uint32_t const TIMEOUT_CAN_SYSTEM_IN_MS = 1U;
-static int const MAX_SENT_PER_RUN              = 3;
-static int const MAX_RECEIVED_PER_RUN          = 3;
+static int const MAX_SENT_PER_RUN              = 8;
+static int const MAX_RECEIVED_PER_RUN          = 8;
 
 namespace
 {
