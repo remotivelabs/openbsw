@@ -30,8 +30,11 @@ etl::array<uint8_t, 3> storedData2eCf03 = {0};
 etl::array<uint8_t, 17> vinData
     = {'O', 'B', 'S', 'W', 'S', 'T', 'M', '3', '2', '0', '0', '0', '0', '0', '0', '0', '1'};
 
-// SW version (DID F195) - read-only.
-uint8_t const swVersionData[] = {'1', '.', '0', '.', '0', '-', 's', 't', 'm', '3', '2'};
+// SW version (DID F195) - read-only. A build can set it with REFERENCE_APP_SW_VERSION.
+#ifndef REFERENCE_APP_SW_VERSION
+#define REFERENCE_APP_SW_VERSION "1.0.0-stm32"
+#endif
+char const swVersionString[] = REFERENCE_APP_SW_VERSION;
 
 // ECU serial number (DID F18C)
 uint8_t const ecuSerialData[]
@@ -87,7 +90,10 @@ UdsSystem::UdsSystem(
 #ifdef PLATFORM_SUPPORT_UDS_DEMO_SERVICES
 , _readF190(0xF190, ::etl::span<uint8_t const>(vinData.data(), vinData.size()))
 , _writeF190(0xF190, ::etl::span<uint8_t>(vinData.data(), vinData.size()))
-, _readF195(0xF195, swVersionData, sizeof(swVersionData))
+, _readF195(
+      0xF195,
+      reinterpret_cast<uint8_t const*>(swVersionString),
+      static_cast<uint16_t>(sizeof(swVersionString) - 1U))
 , _readF18C(0xF18C, ecuSerialData, sizeof(ecuSerialData))
 , _readF193(0xF193, hwVersionData, sizeof(hwVersionData))
 , _readF18A(0xF18A, supplierIdData, sizeof(supplierIdData))
