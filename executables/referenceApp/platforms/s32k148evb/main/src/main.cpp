@@ -63,9 +63,13 @@ void setupApplicationsIsr(void)
     // interrupts
     SYS_SetPriority(CAN0_ORed_0_15_MB_IRQn, 8);  // can0 buffer 0 - 15
     SYS_SetPriority(CAN0_ORed_16_31_MB_IRQn, 8); // can0 buffer 16 - 32
+    SYS_SetPriority(CAN1_ORed_0_15_MB_IRQn, 8);  // can1 buffer 0 - 15
+    SYS_SetPriority(CAN1_ORed_16_31_MB_IRQn, 8); // can1 buffer 16 - 32
 
     SYS_EnableIRQ(CAN0_ORed_0_15_MB_IRQn);
     SYS_EnableIRQ(CAN0_ORed_16_31_MB_IRQn);
+    SYS_EnableIRQ(CAN1_ORed_0_15_MB_IRQn);
+    SYS_EnableIRQ(CAN1_ORed_16_31_MB_IRQn);
 
     // Data transfer done, Transmit Buffer Done for Ring/Queue 0, Transmit Frame Done for Ring/Queue
     // 0

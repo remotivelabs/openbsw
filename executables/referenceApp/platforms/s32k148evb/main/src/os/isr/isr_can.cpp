@@ -12,9 +12,15 @@ extern "C"
 {
 extern void call_can_isr_RX();
 extern void call_can_isr_TX();
+extern void call_can1_isr_RX();
+extern void call_can1_isr_TX();
 
 void CAN0_ORed_0_15_MB_IRQHandler() { call_can_isr_RX(); }
 
 void CAN0_ORed_16_31_MB_IRQHandler() { call_can_isr_TX(); }
+
+void CAN1_ORed_0_15_MB_IRQHandler() { call_can1_isr_RX(); }
+
+void CAN1_ORed_16_31_MB_IRQHandler() { call_can1_isr_TX(); }
 
 } /* extern "C" */

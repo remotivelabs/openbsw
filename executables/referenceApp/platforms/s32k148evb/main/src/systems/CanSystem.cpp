@@ -33,6 +33,12 @@ namespace systems
       Can0Config,
       staticBsp.getCanPhy(),
       staticBsp.getPowerStateController())
+, _transceiver1(
+      context,
+      ::busid::CAN_1,
+      Can1Config,
+      staticBsp.getCanPhy(),
+      staticBsp.getPowerStateController())
 , _canRxRunnable(*this)
 {}
 
@@ -45,6 +51,9 @@ void CanSystem::run()
     (void)_transceiver0.init();
     (void)_transceiver0.open();
 
+    (void)_transceiver1.init();
+    (void)_transceiver1.open();
+
     transitionDone();
 }
 
@@ -52,6 +61,9 @@ void CanSystem::shutdown()
 {
     (void)_transceiver0.close();
     _transceiver0.shutdown();
+
+    (void)_transceiver1.close();
+    _transceiver1.shutdown();
 
     _canRxRunnable.setEnabled(false);
 
@@ -63,6 +75,10 @@ void CanSystem::shutdown()
     if (busId == ::busid::CAN_0)
     {
         return &_transceiver0;
+    }
+    if (busId == ::busid::CAN_1)
+    {
+        return &_transceiver1;
     }
     return nullptr;
 }
@@ -76,6 +92,7 @@ void CanSystem::CanRxRunnable::execute()
     if (_enabled)
     {
         _parent._transceiver0.receiveTask();
+        _parent._transceiver1.receiveTask();
     }
 }
 
@@ -105,6 +122,32 @@ void call_can_isr_TX()
 {
     ::asyncEnterIsrGroup(ISR_GROUP_CAN);
     bios::CanFlex2Transceiver::transmitInterrupt(0);
+    ::asyncLeaveIsrGroup(ISR_GROUP_CAN);
+}
+
+// FlexCAN1 has driver index 1 (see FlexCANDevice: base address 0x40025000).
+void call_can1_isr_RX()
+{
+    ::asyncEnterIsrGroup(ISR_GROUP_CAN);
+
+    uint8_t framesReceived;
+    {
+        ::async::LockType const lock;
+        framesReceived = bios::CanFlex2Transceiver::receiveInterrupt(1);
+    }
+
+    if (framesReceived > 0)
+    {
+        ::systems::CanSystem::instance().dispatchRxTask();
+    }
+
+    ::asyncLeaveIsrGroup(ISR_GROUP_CAN);
+}
+
+void call_can1_isr_TX()
+{
+    ::asyncEnterIsrGroup(ISR_GROUP_CAN);
+    bios::CanFlex2Transceiver::transmitInterrupt(1);
     ::asyncLeaveIsrGroup(ISR_GROUP_CAN);
 }
 }
