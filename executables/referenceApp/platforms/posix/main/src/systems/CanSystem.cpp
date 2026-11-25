@@ -20,9 +20,16 @@ namespace systems
 using ::util::logger::CAN;
 using ::util::logger::Logger;
 
+// The most frames that the CAN task moves each way, per bus, per run (every
+// TIMEOUT_CAN_SYSTEM_IN_MS). A build can raise it with REFERENCE_APP_CAN_FRAMES_PER_RUN for an
+// application that sends more frames at once.
+#ifndef REFERENCE_APP_CAN_FRAMES_PER_RUN
+#define REFERENCE_APP_CAN_FRAMES_PER_RUN 3
+#endif
+
 static uint32_t const TIMEOUT_CAN_SYSTEM_IN_MS = 1U;
-static int const MAX_SENT_PER_RUN              = 3;
-static int const MAX_RECEIVED_PER_RUN          = 3;
+static int const MAX_SENT_PER_RUN              = REFERENCE_APP_CAN_FRAMES_PER_RUN;
+static int const MAX_RECEIVED_PER_RUN          = REFERENCE_APP_CAN_FRAMES_PER_RUN;
 
 namespace
 {
