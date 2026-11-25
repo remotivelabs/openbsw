@@ -74,6 +74,13 @@ StaticBsp staticBsp;
 
 StaticBsp& getStaticBsp() { return staticBsp; }
 
+/**
+ * Called by the application's idle handler once per iteration. Nothing to do yet; this is
+ * the place to wait for an interrupt (e.g. __WFI()) once the power/debug implications have
+ * been checked for this board.
+ */
+void platformIdle() {}
+
 #ifdef PLATFORM_SUPPORT_CAN
 ::etl::typed_storage<::systems::CanSystem> canSystem;
 #endif
