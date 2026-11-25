@@ -59,6 +59,7 @@ DEFINE_LOGGER_COMPONENT(SOMEIP);
 #include <logger/ComponentMapping.h>
 #include <logger/DefaultLoggerCommand.h>
 #include <logger/LoggerComposition.h>
+#include <util/string/ConstString.h>
 
 START_LOGGER_COMPONENT_MAPPING_INFO_TABLE(loggerComponentInfoTable)
 /* start: adding logger components */
@@ -106,22 +107,122 @@ DEFINE_LOGGER_COMPONENT_MAPPING(
     ::util::logger::LevelInfo::getDefaultTable(),
     GLOBAL);
 
+// The build can set the name at the start of every log line (REFERENCE_APP_NAME) and the log
+// levels the application starts with (REFERENCE_APP_LOG_LEVELS), see the application's
+// CMakeLists.txt.
+#ifndef REFERENCE_APP_NAME
+#define REFERENCE_APP_NAME "RefApp"
+#endif
+
 namespace logger
 {
 using ComponentConfigType = ComponentConfig<LoggerComponentMappingType::MappingSize>;
 ComponentConfigType loggerComponentConfig(loggerComponentMapping);
-LoggerComposition loggerComposition(loggerComponentMapping, "RefApp");
+LoggerComposition loggerComposition(loggerComponentMapping, REFERENCE_APP_NAME);
 
 DefaultLoggerCommand loggerCommand(loggerComponentConfig);
 
 ::console::AsyncCommandWrapper
     asyncCommandWrapper(loggerCommand.root(), ::async::AsyncBinding::AdapterType::TASK_IDLE);
 
+#ifdef REFERENCE_APP_LOG_LEVELS
+namespace
+{
+using ::util::logger::GLOBAL;
+using ::util::logger::Logger;
+using ::util::string::ConstString;
+
+char const* findOrEnd(char const* current, char const* const end, char const c)
+{
+    while ((current != end) && (*current != c))
+    {
+        ++current;
+    }
+    return current;
+}
+
+/**
+ * Applies one entry of REFERENCE_APP_LOG_LEVELS: "LEVEL" sets every component but GLOBAL,
+ * "COMPONENT=LEVEL" sets one component. GLOBAL is left alone by the first form because its level
+ * is also the threshold that every message has to pass: raising it would hide the messages of
+ * the components set to a lower level.
+ */
+void applyLogLevel(char const* const entry, char const* const end)
+{
+    char const* const separator = findOrEnd(entry, end, '=');
+    char const* const levelName = (separator == end) ? entry : (separator + 1);
+    ConstString const level(levelName, static_cast<size_t>(end - levelName));
+    ::util::logger::LevelInfo const levelInfo = loggerComponentConfig.getLevelInfoByName(level);
+    // NOLINTBEGIN(cppcoreguidelines-pro-type-vararg): Logger API is variadic by design.
+    if (!levelInfo.isValid())
+    {
+        Logger::warn(
+            GLOBAL,
+            "REFERENCE_APP_LOG_LEVELS: unknown level '%.*s'",
+            static_cast<int>(level.length()),
+            level.data());
+        return;
+    }
+    if (separator == end)
+    {
+        uint8_t const globalIndex
+            = loggerComponentConfig.getComponentInfoByName(ConstString("GLOBAL")).getIndex();
+        for (uint8_t idx = 0U; idx < loggerComponentConfig.getMappingSize(); ++idx)
+        {
+            if (idx != globalIndex)
+            {
+                loggerComponentConfig.setLevel(idx, levelInfo.getLevel());
+            }
+        }
+        return;
+    }
+    ConstString const component(entry, static_cast<size_t>(separator - entry));
+    ::util::logger::ComponentInfo const componentInfo
+        = loggerComponentConfig.getComponentInfoByName(component);
+    if (!componentInfo.isValid())
+    {
+        // A component that this build leaves out, e.g. UDS without PLATFORM_SUPPORT_UDS.
+        Logger::warn(
+            GLOBAL,
+            "REFERENCE_APP_LOG_LEVELS: no component '%.*s' in this build",
+            static_cast<int>(component.length()),
+            component.data());
+        return;
+    }
+    // NOLINTEND(cppcoreguidelines-pro-type-vararg)
+    loggerComponentConfig.setLevel(componentInfo.getIndex(), levelInfo.getLevel());
+}
+
+/**
+ * Applies REFERENCE_APP_LOG_LEVELS, a comma-separated list of entries (see applyLogLevel()), in
+ * order, so that later entries override earlier ones: "WARN,CAN=INFO".
+ */
+void applyLogLevels()
+{
+    char const* const levels = REFERENCE_APP_LOG_LEVELS;
+    char const* const end    = levels + (sizeof(REFERENCE_APP_LOG_LEVELS) - 1U);
+    char const* entry        = levels;
+    while (entry != end)
+    {
+        char const* const entryEnd = findOrEnd(entry, end, ',');
+        if (entryEnd != entry)
+        {
+            applyLogLevel(entry, entryEnd);
+        }
+        entry = (entryEnd == end) ? end : (entryEnd + 1);
+    }
+}
+} // namespace
+#endif // REFERENCE_APP_LOG_LEVELS
+
 void init()
 {
     loggerComposition.start(
         LoggerComposition::ConfigStart::create<ComponentConfigType, &ComponentConfigType::start>(
             loggerComponentConfig));
+#ifdef REFERENCE_APP_LOG_LEVELS
+    applyLogLevels();
+#endif
 }
 
 void run() { loggerComposition.run(); }

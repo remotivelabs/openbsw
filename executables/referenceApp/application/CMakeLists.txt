@@ -160,6 +160,51 @@ if (PLATFORM_SUPPORT_MIDDLEWARE)
                                  -Wl,--no-whole-archive)
 endif ()
 
+# The name at the start of every log line, e.g. -DREFERENCE_APP_NAME=MyEcu.
+# Empty (the default): RefApp.
+set(REFERENCE_APP_NAME
+    ""
+    CACHE STRING "Name at the start of every log line (empty: RefApp)")
+if (REFERENCE_APP_NAME)
+    set_property(
+        SOURCE src/logger/logger.cpp
+        APPEND
+        PROPERTY COMPILE_DEFINITIONS
+                 "REFERENCE_APP_NAME=\"${REFERENCE_APP_NAME}\"")
+endif ()
+
+# The log levels the application starts with, in place of DEBUG for every
+# component: a comma-separated list of LEVEL (every component but GLOBAL) and
+# COMPONENT=LEVEL entries, applied in order, e.g.
+# -DREFERENCE_APP_LOG_LEVELS=WARN,CAN=INFO. The levels are DEBUG, INFO, WARN,
+# ERROR, CRITICAL and NONE. Empty (the default): the levels in
+# src/logger/logger.cpp.
+set(REFERENCE_APP_LOG_LEVELS
+    ""
+    CACHE
+        STRING
+        "Log levels at startup, e.g. WARN,CAN=INFO (empty: the built-in levels)"
+)
+if (REFERENCE_APP_LOG_LEVELS)
+    string(REPLACE "," ";" _logLevelEntries "${REFERENCE_APP_LOG_LEVELS}")
+    foreach (_entry IN LISTS _logLevelEntries)
+        string(TOUPPER "${_entry}" _entryUpper)
+        if (NOT _entryUpper MATCHES
+            "^([A-Z0-9_]+=)?(DEBUG|INFO|WARN|ERROR|CRITICAL|NONE)$")
+            message(
+                FATAL_ERROR
+                    "REFERENCE_APP_LOG_LEVELS: '${_entry}' is neither LEVEL nor COMPONENT=LEVEL, "
+                    "with LEVEL one of DEBUG, INFO, WARN, ERROR, CRITICAL and NONE"
+            )
+        endif ()
+    endforeach ()
+    set_property(
+        SOURCE src/logger/logger.cpp
+        APPEND
+        PROPERTY COMPILE_DEFINITIONS
+                 "REFERENCE_APP_LOG_LEVELS=\"${REFERENCE_APP_LOG_LEVELS}\"")
+endif ()
+
 if (BUILD_RUST)
     target_compile_definitions(app.referenceApp PRIVATE BUILD_RUST)
     target_sources(app.referenceApp PRIVATE src/app/rust/RustRuntime.cpp
