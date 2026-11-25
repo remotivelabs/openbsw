@@ -9,6 +9,9 @@
 #                               that app.cpp calls; it is found before the
 #                               referenceApp's own
 #
+# The application logs with the APP logger component (app/AppLogger.h), which
+# takes the place of the demo's DEMO.
+#
 # Empty (the default) builds the demo.
 set(REFERENCE_APP_APPLICATION_DIR
     ""
@@ -197,6 +200,10 @@ endif ()
 
 if (REFERENCE_APP_APPLICATION_DIR)
     message(STATUS "referenceApp application: ${REFERENCE_APP_APPLICATION_DIR}")
+    set_property(
+        SOURCE src/logger/logger.cpp
+        APPEND
+        PROPERTY COMPILE_DEFINITIONS REFERENCE_APP_EXTERNAL_APPLICATION)
     target_include_directories(app.referenceApp BEFORE
                                PRIVATE ${REFERENCE_APP_APPLICATION_DIR}/include)
     add_subdirectory(${REFERENCE_APP_APPLICATION_DIR}
