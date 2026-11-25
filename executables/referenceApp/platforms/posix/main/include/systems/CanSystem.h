@@ -41,7 +41,8 @@ private:
     ::async::TimeoutType _timeout;
     ::async::ContextType _context;
 
-    ::can::SocketCanTransceiver _canTransceiver;
+    ::can::SocketCanTransceiver _can0Transceiver;
+    ::can::SocketCanTransceiver _can1Transceiver;
 };
 
 } // namespace systems
