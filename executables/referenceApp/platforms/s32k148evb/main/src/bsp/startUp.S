@@ -514,4 +514,13 @@ __start:
     ldr r2, =Reset_Handler
     bx  r2
 
+/* Flash configuration field at 0x400 (see S32K1xx RM, flash memory configuration field).
+ * FSEC = 0xFE keeps the MCU unsecured, so debuggers and the OpenSDA MSD flash
+ * programmer can still access the flash after programming. */
+    .section .FlashConfig, "a"
+    .long 0xFFFFFFFF    /* 0x400: backdoor comparison key (bytes 0-3) */
+    .long 0xFFFFFFFF    /* 0x404: backdoor comparison key (bytes 4-7) */
+    .long 0xFFFFFFFF    /* 0x408: FPROT3..FPROT0: no program flash protection */
+    .long 0xFFFFFFFE    /* 0x40C: FSEC = 0xFE (unsecured), FOPT = 0xFF, FEPROT = 0xFF, FDPROT = 0xFF */
+
 .end
