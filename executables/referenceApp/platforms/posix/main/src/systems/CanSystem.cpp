@@ -10,34 +10,66 @@
 
 #include "systems/CanSystem.h"
 
+#include <can/CanLogger.h>
+
+#include <cstdlib>
+#include <cstring>
+
 namespace systems
 {
+using ::util::logger::CAN;
+using ::util::logger::Logger;
+
+// The most frames that the CAN task moves each way, per bus, per run (every
+// TIMEOUT_CAN_SYSTEM_IN_MS). A build can raise it with REFERENCE_APP_CAN_FRAMES_PER_RUN for an
+// application that sends more frames at once.
+#ifndef REFERENCE_APP_CAN_FRAMES_PER_RUN
+#define REFERENCE_APP_CAN_FRAMES_PER_RUN 3
+#endif
+
 static uint32_t const TIMEOUT_CAN_SYSTEM_IN_MS = 1U;
-static int const MAX_SENT_PER_RUN              = 3;
-static int const MAX_RECEIVED_PER_RUN          = 3;
+static int const MAX_SENT_PER_RUN              = REFERENCE_APP_CAN_FRAMES_PER_RUN;
+static int const MAX_RECEIVED_PER_RUN          = REFERENCE_APP_CAN_FRAMES_PER_RUN;
 
 namespace
 {
 
 #if defined(PLATFORM_CAN0_USE_FD)
-bool const USE_CAN_FD = true;
+char const* const DEFAULT_CAN_FD = "1";
 #else
-bool const USE_CAN_FD = false;
+char const* const DEFAULT_CAN_FD = "0";
 #endif
 
-// clang-format off
-::can::SocketCanTransceiver::DeviceConfig can0Config
+// The environment can override the interfaces and the frame format, so that one binary can be
+// attached to whatever interfaces a host or container provides:
+//   OPENBSW_CAN0_IF  SocketCAN interface for CAN_0 (default vcan0)
+//   OPENBSW_CAN1_IF  SocketCAN interface for CAN_1 (default vcan1)
+//   OPENBSW_CAN_FD   1: CAN FD with bit rate switching, 0: classic CAN
+//                    (default as PLATFORM_CAN0_USE_FD)
+char const* envOrDefault(char const* const name, char const* const fallback)
 {
-    "vcan0", ::busid::CAN_0,
-    USE_CAN_FD, /*enableCanFd*/
-    USE_CAN_FD  /*enableBitRateSwitch*/
+    char const* const value = ::std::getenv(name);
+    return ((value != nullptr) && (value[0] != '\0')) ? value : fallback;
+}
+
+bool canFdEnabled()
+{
+    return ::std::strcmp(envOrDefault("OPENBSW_CAN_FD", DEFAULT_CAN_FD), "0") != 0;
+}
+
+// clang-format off
+::can::SocketCanTransceiver::DeviceConfig const can0Config
+{
+    envOrDefault("OPENBSW_CAN0_IF", "vcan0"), ::busid::CAN_0,
+    canFdEnabled(), /*enableCanFd*/
+    canFdEnabled()  /*enableBitRateSwitch*/
 };
 
-::can::SocketCanTransceiver::DeviceConfig can1Config
+::can::SocketCanTransceiver::DeviceConfig const can1Config
 {
-    "vcan1", ::busid::CAN_1,
-    USE_CAN_FD, /*enableCanFd*/
-    USE_CAN_FD  /*enableBitRateSwitch*/
+    envOrDefault("OPENBSW_CAN1_IF", "vcan1"), ::busid::CAN_1,
+    canFdEnabled(), /*enableCanFd*/
+    canFdEnabled()  /*enableBitRateSwitch*/
 };
 // clang-format on
 } // namespace
@@ -52,6 +84,14 @@ void CanSystem::init() { transitionDone(); }
 
 void CanSystem::run()
 {
+    // NOLINTBEGIN(cppcoreguidelines-pro-type-vararg): Logger API is variadic by design.
+    Logger::info(
+        CAN,
+        "CAN_0 on %s, CAN_1 on %s, CAN FD %s",
+        can0Config.name,
+        can1Config.name,
+        can0Config.enableCanFd ? "on" : "off");
+    // NOLINTEND(cppcoreguidelines-pro-type-vararg)
     _can0Transceiver.init();
     _can0Transceiver.open();
     _can1Transceiver.init();
