@@ -12,6 +12,10 @@
 
 # Eclipse OpenBSW
 
+> This is the Remotive Labs fork of Eclipse OpenBSW, with general changes to the referenceApp for building an
+> application on it and running it as a virtual ECU. What it changes and how its branches are organized is in
+> [REMOTIVELABS.md](REMOTIVELABS.md).
+
 
 ## Build Status 🚀
 
